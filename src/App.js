@@ -1,8 +1,13 @@
 import React from "react";
+import Tetris from "./components/Tetris";
 import "./index.css";
 
-function App() {
-  return <section>Text</section>;
-}
+const App = () => {
+  return (
+    <main>
+      <Tetris />
+    </main>
+  );
+};
 
 export default App;
