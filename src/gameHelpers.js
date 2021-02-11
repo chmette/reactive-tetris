@@ -34,7 +34,7 @@ export const checkCollision = (player, stage, { x: moveX, y: moveY }) => {
 // reference
 // [
 // 	[0, X, 0]
-// 	[0, X, 0]
+// 	[0, X, X]
 // 	[0, X, 0]
 // ]
 
