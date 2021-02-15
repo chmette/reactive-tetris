@@ -8,6 +8,7 @@ const Header = () => {
 			<h1>reactive tetris</h1>
 			<IoInformationCircleOutline />
 		</StyledHeader>
+
 	)
 }
 
