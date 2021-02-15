@@ -3,7 +3,6 @@ import styled from "styled-components";
 export const StyledStartButton = styled.button`
     box-sizing: border-box;
     padding: 1.5rem 1rem 1.2rem;
-    width: 15ch;
     border-radius: 1.2rem;
     border: none;
     color: white;
@@ -12,4 +11,8 @@ export const StyledStartButton = styled.button`
     font-size: 1rem;
     outline: none;
     cursor: pointer;
+
+	@media screen and (min-width: 600px) {
+		width: 15ch;
+	}
 `;
