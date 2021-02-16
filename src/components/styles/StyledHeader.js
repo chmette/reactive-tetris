@@ -16,6 +16,15 @@ const StyledHeader = styled.header`
 	svg {
 		width: 2rem;
 		height: auto;
+		cursor: pointer;
+		
+		&:hover {
+			stroke: white;
+
+			path:last-child {
+				fill: white;
+			}
+		}
 	}
 `
 
