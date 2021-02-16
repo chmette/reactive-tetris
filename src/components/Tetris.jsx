@@ -95,9 +95,9 @@ const Tetris = () => {
 		}
 	}
 
-	const keyUp = ({keyCode})=>{
+	const keyUp = ({key})=>{
 		if(!gameOver){
-			if(keyCode===40) {
+			if(key==='ArrowDown') {
 				console.log('interval on ')
 				setDropTime(1000 / (level + 1));
 			}
@@ -113,23 +113,23 @@ const Tetris = () => {
 		setTogglePause(true)
 	}
 
-	const move = ({keyCode}) => {
+	const move = ({key}) => {
 	
 		if (!gameOver) {
 			// left arrow
-			if (keyCode === 37 ) {
+			if (key === 'ArrowLeft' ) {
 				movePlayer(-1);
 			// right arrow
-			} else if (keyCode === 39) {
+			} else if (key === 'ArrowRight') {
 				movePlayer(1);
 			// down arrow
-			} else if (keyCode === 40) {
+			} else if (key === 'ArrowDown') {
 				dropPlayer();
 				
             // up arrow      
-			}else if (keyCode === 38) {
+			}else if (key === 'ArrowUp') {
                 playerRotate(stage, 1)
-            }else if (keyCode === 32) {
+            }else if (key === ' ') {
 				playerRotate(stage,1)
 			}
 		}
