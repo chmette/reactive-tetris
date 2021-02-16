@@ -114,7 +114,8 @@ const Tetris = () => {
 				movePlayer(1);
 			// down arrow
 			} else if (keyCode === 40) {
-                dropPlayer();
+				dropPlayer();
+				setTogglePause(true)
             // up arrow      
 			}else if (keyCode === 38) {
                 playerRotate(stage, 1)
@@ -141,10 +142,11 @@ const Tetris = () => {
 								<Display text="Score:" value={score} />
 								<Display text="Rows:" value={rows} />
 								<Display text="Level:" value={level} />
+								<PauseButton state={togglePause}  callback ={pauseGame}/>
 		                    </div>
 		                    )}
 							<StartButton text={btnText} callback={startGame} />
-							<PauseButton state={togglePause}  callback ={pauseGame}/>
+							
 						</aside>
 						
 					</StyledTetris>
