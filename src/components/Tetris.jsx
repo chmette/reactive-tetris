@@ -49,7 +49,7 @@ const Tetris = () => {
 		setLevel(0);
 		setRows(0);
 		setGameOver(false);
-		setBtnText('Reset Game');
+		setBtnText('Reset');
 		setTogglePause(true);
 		
 	}
