@@ -33,7 +33,8 @@ const Tetris = () => {
 	}
 
 	const startGame = () => {
-        console.log('start-game test')
+						
+		console.log('start game');
         //reset everything
 		setStage(createStage());
 		setDropTime(1000)
@@ -42,7 +43,9 @@ const Tetris = () => {
 		setLevel(0);
 		setRows(0);
 		setGameOver(false);
+	
 	}
+	
 
 	const drop = () => {
 		// Add up level when rows are cleared
@@ -66,6 +69,7 @@ const Tetris = () => {
 	}
 
 	const keyUp = ({keyCode})=>{
+	
 		if(!gameOver){
 			if(keyCode===40) {
 				console.log('interval on ')
@@ -83,6 +87,7 @@ const Tetris = () => {
 	}
 
 	const move = ({keyCode}) => {
+		
 		if (!gameOver) {
 			// left arrow
 			if (keyCode === 37) {
@@ -95,8 +100,8 @@ const Tetris = () => {
                 dropPlayer();
             // up arrow      
 			}else if (keyCode === 38) {
-                playerRotate(stage, 1)
-            }
+                playerRotate(stage, 1);
+			}
 		}
 	}
 
