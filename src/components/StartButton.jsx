@@ -3,7 +3,7 @@ import { StyledStartButton } from './styles/StyledStatButton'
 
 const StartButton = ({callback}) => {
     return (
-        <StyledStartButton onClick={callback}>
+        <StyledStartButton  onClick={callback}>
             Start Game
         </StyledStartButton>
     )
