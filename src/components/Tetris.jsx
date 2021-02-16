@@ -5,8 +5,7 @@ import React, {useState} from 'react';
 
 // styles
  import { StyledTetrisWrapper, StyledTetris } from './styles/StyledTetris';
- import {StyledDirButton,StyledControlWrapper,StyledMobileControls, StyledRotateButton} from './styles/StyledMobileControls'
- import {IoArrowForwardOutline, IoArrowBackOutline, IoArrowDownOutline, IoRefreshOutline} from 'react-icons/io5';
+
 
 //Hooks
 import {usePlayer} from '../hooks/usePlayer';
@@ -19,6 +18,7 @@ import Stage from './Stage';
 import Display from './Display';
 import StartButton from './StartButton';
 import PauseButton from './PauseButton';
+import MobileControls from './MobileControls';
 
 
 
@@ -158,23 +158,7 @@ const Tetris = () => {
 							
 						</aside>
 
-						{/* Mobile controls */}
-						<StyledControlWrapper>
-							<StyledMobileControls>
-								{/* move left */}
-								<StyledDirButton onClick={(e)=>movePlayer(-1)}><IoArrowBackOutline/></StyledDirButton>
-								<div>
-									<StyledDirButton></StyledDirButton>
-									{/* move down  */}
-									<StyledDirButton onTouchStart={()=>dropPlayer()} onClick={()=>setDropTime(1000 / (level + 1)) }><IoArrowDownOutline/></StyledDirButton>
-								</div>
-								{/* move right */}
-								<StyledDirButton onClick={()=>movePlayer(1)}><IoArrowForwardOutline/></StyledDirButton>
-								{/* rotate */}
-								<StyledRotateButton onClick={()=>playerRotate(stage, 1)}><IoRefreshOutline/></StyledRotateButton>
-							</StyledMobileControls>    
-       					</StyledControlWrapper>
-
+						<MobileControls movePlayer={movePlayer}  dropPlayer={dropPlayer} setDropTime={setDropTime} playerRotate={playerRotate} level={level} stage={stage}/>		
 						
 					</StyledTetris>
 					
