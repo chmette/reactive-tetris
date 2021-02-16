@@ -6,6 +6,7 @@ import React, {useState} from 'react';
 // styles
  import { StyledTetrisWrapper, StyledTetris } from './styles/StyledTetris';
 
+
 //Hooks
 import {usePlayer} from '../hooks/usePlayer';
 import {useStage} from '../hooks/useStage';
@@ -17,7 +18,12 @@ import Stage from './Stage';
 import Display from './Display';
 import StartButton from './StartButton';
 import PauseButton from './PauseButton';
+
+import MobileControls from './MobileControls';
+
+
 import FutureTetro from './FutureTetro';
+
 
 
 const Tetris = () => {
@@ -83,6 +89,7 @@ const Tetris = () => {
 				setGameOver(true);
 				setDropTime(null);
 				setBtnText('Start Game')
+				setTogglePause(true)
 			}
 			updatePlayerPos({x: 0, y: 0, collided: true});
 		}
@@ -103,12 +110,14 @@ const Tetris = () => {
 		//console.log('interval off');
 		setDropTime(null)
 		drop();
+		setTogglePause(true)
 	}
 
 	const move = ({keyCode}) => {
+	
 		if (!gameOver) {
 			// left arrow
-			if (keyCode === 37) {
+			if (keyCode === 37 ) {
 				movePlayer(-1);
 			// right arrow
 			} else if (keyCode === 39) {
@@ -116,7 +125,7 @@ const Tetris = () => {
 			// down arrow
 			} else if (keyCode === 40) {
 				dropPlayer();
-				setTogglePause(true)
+				
             // up arrow      
 			}else if (keyCode === 38) {
                 playerRotate(stage, 1)
@@ -126,33 +135,40 @@ const Tetris = () => {
 		}
 	}
 
+
+
+
 	// custom hook by Dan Abramov ( starts interval )
 	useInterval(()=>{
 		drop()
 	}, dropTime);
 
 	return (
-		<StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)} onKeyUp={keyUp}>
-			<StyledTetris>
-				<Stage stage={stage} />
-				<aside>
-					<FutureTetro futureTetro={futureTetro} />
-					
-					{gameOver ? (<Display gameOver={gameOver} text='Game Over' />) : (
-						<div>
-							<Display text="Score:" value={score} />
-							<Display text="Rows:" value={rows} />
-							<Display text="Level:" value={level} />
-							<PauseButton state={togglePause} callback={pauseGame} />
-						</div>
-					)}
-					<StartButton text={btnText} callback={startGame} />
 
-				</aside>
+		
+			
+				<StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)} onKeyUp={keyUp}>
+					<StyledTetris>
+						<Stage stage={stage}/>
+						<aside>
+              <FutureTetro futureTetro={futureTetro} />
+		                    {gameOver? (<Display gameOver={gameOver} text='Game Over' />) : (
+							<div>
+								<Display text="Score:" value={score} />
+								<Display text="Rows:" value={rows} />
+								<Display text="Level:" value={level} />
+								<PauseButton state={togglePause}  callback ={pauseGame}/>
+		                    </div>
+		                    )}
+							<StartButton text={btnText} callback={startGame} />
+							
+						</aside>
 
-			</StyledTetris>
+						<MobileControls movePlayer={movePlayer}  dropPlayer={dropPlayer} setDropTime={setDropTime} playerRotate={playerRotate} level={level} stage={stage}/>		
+						
+					</StyledTetris>
 
-		</StyledTetrisWrapper>
+			</StyledTetrisWrapper>
 
 
 	)
