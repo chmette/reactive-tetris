@@ -1,8 +1,10 @@
 import React, {useState} from 'react';
 
+//Game Helper Functions
  import {createStage, checkCollision} from '../gameHelpers';
 
-import { StyledTetrisWrapper, StyledTetris } from './styles/StyledTetris';
+// styles
+ import { StyledTetrisWrapper, StyledTetris } from './styles/StyledTetris';
 
 //Hooks
 import {usePlayer} from '../hooks/usePlayer';
@@ -14,11 +16,15 @@ import {useGameStatus} from '../hooks/useGameStatus'
 import Stage from './Stage';
 import Display from './Display';
 import StartButton from './StartButton';
+import PauseButton from './PauseButton';
 
 
 const Tetris = () => {
 	const [dropTime, setDropTime] = useState(null);
 	const [gameOver, setGameOver] = useState(false);
+	const [btnText, setBtnText] = useState('Start Game')
+	const [togglePause, setTogglePause]=useState(true)
+
 
     const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
 	const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
@@ -43,6 +49,20 @@ const Tetris = () => {
 		setLevel(0);
 		setRows(0);
 		setGameOver(false);
+		setBtnText('Reset Game');
+		setTogglePause(true);
+		
+	}
+
+	const pauseGame=()=>{
+  		setTogglePause(!togglePause)
+		  if(togglePause === true ){
+			setDropTime(null)
+			console.log('Game paused')
+		} else {
+			setDropTime(1000 / (level + 1) + 200)
+			console.log('Game continues');
+		}
 	}
 
 	const drop = () => {
@@ -61,6 +81,7 @@ const Tetris = () => {
 				console.log("it's all over now");
 				setGameOver(true);
 				setDropTime(null);
+				setBtnText('Start Game')
 			}
 			updatePlayerPos({x: 0, y: 0, collided: true});
 		}
@@ -122,7 +143,8 @@ const Tetris = () => {
 								<Display text="Level:" value={level} />
 		                    </div>
 		                    )}
-							<StartButton callback={startGame} />
+							<StartButton text={btnText} callback={startGame} />
+							<PauseButton state={togglePause}  callback ={pauseGame}/>
 						</aside>
 						
 					</StyledTetris>
