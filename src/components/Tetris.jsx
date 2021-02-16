@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import {useMediaQuery} from 'react-responsive';
 
 //Game Helper Functions
  import {createStage, checkCollision} from '../gameHelpers';
@@ -26,6 +27,8 @@ const Tetris = () => {
 	const [btnText, setBtnText] = useState('Start Game')
 	const [togglePause, setTogglePause]=useState(true)
 
+	// media queries
+	const mobileView = useMediaQuery({ maxWidth: 600 })
 
     const [player, updatePlayerPos, resetPlayer, playerRotate, futureTetro] = usePlayer();
 	const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
@@ -136,7 +139,8 @@ const Tetris = () => {
 			<StyledTetris>
 				<Stage stage={stage} />
 				<aside>
-					<FutureTetro futureTetro={futureTetro} />
+					
+					{!mobileView && <FutureTetro futureTetro={futureTetro} />}
 					
 					{gameOver ? (<Display gameOver={gameOver} text='Game Over' />) : (
 						<div>
