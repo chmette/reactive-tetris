@@ -17,6 +17,7 @@ import Stage from './Stage';
 import Display from './Display';
 import StartButton from './StartButton';
 import PauseButton from './PauseButton';
+import FutureTetro from './FutureTetro';
 
 
 const Tetris = () => {
@@ -26,7 +27,7 @@ const Tetris = () => {
 	const [togglePause, setTogglePause]=useState(true)
 
 
-    const [player, updatePlayerPos, resetPlayer, playerRotate] = usePlayer();
+    const [player, updatePlayerPos, resetPlayer, playerRotate, futureTetro] = usePlayer();
 	const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
 	const [score, setScore, rows, setRows, level, setLevel]=useGameStatus(rowsCleared);
 
@@ -131,29 +132,29 @@ const Tetris = () => {
 	}, dropTime);
 
 	return (
-		
-			
-				<StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)} onKeyUp={keyUp}>
-					<StyledTetris>
-						<Stage stage={stage}/>
-						<aside>
-		                    {gameOver? (<Display gameOver={gameOver} text='Game Over' />) : (
-							<div>
-								<Display text="Score:" value={score} />
-								<Display text="Rows:" value={rows} />
-								<Display text="Level:" value={level} />
-								<PauseButton state={togglePause}  callback ={pauseGame}/>
-		                    </div>
-		                    )}
-							<StartButton text={btnText} callback={startGame} />
-							
-						</aside>
-						
-					</StyledTetris>
+		<StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)} onKeyUp={keyUp}>
+			<StyledTetris>
+				<Stage stage={stage} />
+				<aside>
+					<FutureTetro futureTetro={futureTetro} />
 					
-				</StyledTetrisWrapper>
-		
-		
+					{gameOver ? (<Display gameOver={gameOver} text='Game Over' />) : (
+						<div>
+							<Display text="Score:" value={score} />
+							<Display text="Rows:" value={rows} />
+							<Display text="Level:" value={level} />
+							<PauseButton state={togglePause} callback={pauseGame} />
+						</div>
+					)}
+					<StartButton text={btnText} callback={startGame} />
+
+				</aside>
+
+			</StyledTetris>
+
+		</StyledTetrisWrapper>
+
+
 	)
 }
 
