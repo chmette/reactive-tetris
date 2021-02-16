@@ -17,6 +17,7 @@ import Stage from './Stage';
 import Display from './Display';
 import StartButton from './StartButton';
 import PauseButton from './PauseButton';
+import FutureTetro from './FutureTetro';
 
 
 const Tetris = () => {
@@ -137,6 +138,7 @@ const Tetris = () => {
 					<StyledTetris>
 						<Stage stage={stage}/>
 						<aside>
+							<FutureTetro player={player}/>
 		                    {gameOver? (<Display gameOver={gameOver} text='Game Over' />) : (
 							<div>
 								<Display text="Score:" value={score} />
