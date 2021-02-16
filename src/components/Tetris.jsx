@@ -5,6 +5,8 @@ import React, {useState} from 'react';
 
 // styles
  import { StyledTetrisWrapper, StyledTetris } from './styles/StyledTetris';
+ import {StyledDirButton,StyledControlWrapper,StyledMobileControls, StyledRotateButton} from './styles/StyledMobileControls'
+ import {IoArrowForwardOutline, IoArrowBackOutline, IoArrowDownOutline, IoRefreshOutline} from 'react-icons/io5';
 
 //Hooks
 import {usePlayer} from '../hooks/usePlayer';
@@ -17,6 +19,7 @@ import Stage from './Stage';
 import Display from './Display';
 import StartButton from './StartButton';
 import PauseButton from './PauseButton';
+
 
 
 const Tetris = () => {
@@ -82,6 +85,7 @@ const Tetris = () => {
 				setGameOver(true);
 				setDropTime(null);
 				setBtnText('Start Game')
+				setTogglePause(true)
 			}
 			updatePlayerPos({x: 0, y: 0, collided: true});
 		}
@@ -102,12 +106,14 @@ const Tetris = () => {
 		//console.log('interval off');
 		setDropTime(null)
 		drop();
+		setTogglePause(true)
 	}
 
 	const move = ({keyCode}) => {
+	
 		if (!gameOver) {
 			// left arrow
-			if (keyCode === 37) {
+			if (keyCode === 37 ) {
 				movePlayer(-1);
 			// right arrow
 			} else if (keyCode === 39) {
@@ -115,7 +121,7 @@ const Tetris = () => {
 			// down arrow
 			} else if (keyCode === 40) {
 				dropPlayer();
-				setTogglePause(true)
+				
             // up arrow      
 			}else if (keyCode === 38) {
                 playerRotate(stage, 1)
@@ -124,6 +130,9 @@ const Tetris = () => {
 			}
 		}
 	}
+
+
+
 
 	// custom hook by Dan Abramov ( starts interval )
 	useInterval(()=>{
@@ -148,6 +157,24 @@ const Tetris = () => {
 							<StartButton text={btnText} callback={startGame} />
 							
 						</aside>
+
+						{/* Mobile controls */}
+						<StyledControlWrapper>
+							<StyledMobileControls>
+								{/* move left */}
+								<StyledDirButton onClick={(e)=>movePlayer(-1)}><IoArrowBackOutline/></StyledDirButton>
+								<div>
+									<StyledDirButton></StyledDirButton>
+									{/* move down  */}
+									<StyledDirButton onTouchStart={()=>dropPlayer()} onClick={()=>setDropTime(1000 / (level + 1)) }><IoArrowDownOutline/></StyledDirButton>
+								</div>
+								{/* move right */}
+								<StyledDirButton onClick={()=>movePlayer(1)}><IoArrowForwardOutline/></StyledDirButton>
+								{/* rotate */}
+								<StyledRotateButton onClick={()=>playerRotate(stage, 1)}><IoRefreshOutline/></StyledRotateButton>
+							</StyledMobileControls>    
+       					</StyledControlWrapper>
+
 						
 					</StyledTetris>
 					

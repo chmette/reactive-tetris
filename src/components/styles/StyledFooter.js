@@ -9,6 +9,7 @@ export const StyledFooter = styled.div`
   font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   align-self: flex-end;
+  font-size: 0.9rem;
 
   a {
     color: rgb(223, 173, 36);
