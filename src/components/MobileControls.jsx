@@ -3,7 +3,7 @@ import { IoArrowForwardOutline, IoArrowBackOutline, IoArrowDownOutline, IoRefres
 import { StyledDirButton, StyledControlWrapper, StyledMobileControls, StyledRotateButton } from './styles/StyledMobileControls'
 
 
-const MobileControls = ({ movePlayer, dropPlayer, setDropTime, level, playerRotate, stage }) => {
+const MobileControls = ({ movePlayer, dropPlayer, setDropTime, level, playerRotate, stage, children }) => {
 
 	return (
 		<StyledControlWrapper>
@@ -18,6 +18,10 @@ const MobileControls = ({ movePlayer, dropPlayer, setDropTime, level, playerRota
 				</div>
 				{/* move right */}
 				<StyledDirButton onClick={() => movePlayer(1)}><IoArrowForwardOutline /></StyledDirButton>
+				
+				{/* pause button for the mobile view */}
+				{children}
+				
 				{/* rotate */}
 				<StyledRotateButton onClick={() => playerRotate(stage, 1)}><IoRefreshOutline /></StyledRotateButton>
 			</StyledMobileControls>

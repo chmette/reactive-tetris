@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import {useMediaQuery} from 'react-responsive';
 
 //Game Helper Functions
@@ -138,6 +138,11 @@ const Tetris = () => {
 		}
 	}
 
+	// useEffect changes some states depending on the current screen width:
+	useEffect(() => {
+		mobileView ? setBtnText('Start') : setBtnText('Start Game');
+	}, [mobileView])
+
 	// custom hook by Dan Abramov ( starts interval )
 	useInterval(() => {
 		drop()
@@ -156,14 +161,18 @@ const Tetris = () => {
 							<Display text="Score:" value={score} />
 							<Display text="Rows:" value={rows} />
 							<Display text="Level:" value={level} />
-							<PauseButton state={togglePause} callback={pauseGame} />
+							{!mobileView && <PauseButton state={togglePause} callback={pauseGame} />}
+							
 						</div>
 					)}
 					<StartButton text={btnText} callback={startGame} />
 
 				</aside>
 
-				<MobileControls movePlayer={movePlayer} dropPlayer={dropPlayer} setDropTime={setDropTime} playerRotate={playerRotate} level={level} stage={stage} />
+				{mobileView &&
+				<MobileControls movePlayer={movePlayer} dropPlayer={dropPlayer} setDropTime={setDropTime} playerRotate={playerRotate} level={level} stage={stage}>
+					<PauseButton state={togglePause} callback={pauseGame} />
+				</MobileControls>}
 
 			</StyledTetris>
 
