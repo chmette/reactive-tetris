@@ -168,18 +168,20 @@ const Tetris = () => {
 							<Display text="Score:" value={score} />
 							<Display text="Rows:" value={rows} />
 							<Display text="Level:" value={level} />
-							{!mobileView && <PauseButton state={togglePause} callback={pauseGame} />}
+							{!mobileView && <PauseButton mobile={mobileView} state={togglePause} callback={pauseGame} />}
 
 							
 						</div>
 					)}
-					<StartButton text={btnText} callback={startGame} />
+					{!mobileView && <StartButton text={btnText} callback={startGame} />}
 
 				</aside>
 
 				{mobileView &&
 				<MobileControls movePlayer={movePlayer} dropPlayer={dropPlayer} setDropTime={setDropTime} playerRotate={playerRotate} level={level} stage={stage}>
-					<PauseButton state={togglePause}  callback={pauseGame} />
+					<PauseButton state={togglePause} mobile={mobileView}  callback={pauseGame} />
+					<StartButton text={btnText} callback={startGame} />
+
 				</MobileControls>}
 
 			</StyledTetris>
