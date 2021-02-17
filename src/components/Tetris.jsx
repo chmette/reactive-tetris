@@ -119,8 +119,6 @@ const Tetris = () => {
 		setTogglePause(true)
 	}
 
-
-	
 	const move = ({key}) => {
 		if (!gameOver) {
 			// left arrow
@@ -156,7 +154,7 @@ const Tetris = () => {
 
 		<StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)} onKeyUp={keyUp}>
 			<StyledTetris>
-				<Stage stage={stage} />
+				<Stage stage={stage} gameOver={gameOver} notPaused={togglePause} player={player}/>
 				<aside>
 					
 					{!mobileView && <FutureTetro futureTetro={futureTetro} />}

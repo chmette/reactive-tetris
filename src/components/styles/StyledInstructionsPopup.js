@@ -3,6 +3,7 @@ import styled from 'styled-components';
 const StyledInstructionsPopup = styled.section`
 	position: absolute;
 	right: 0;
+	z-index: 2;
 	max-width: 600px;
 	margin: min(3vmin, 3rem);
 	border: 2px dashed #999;
