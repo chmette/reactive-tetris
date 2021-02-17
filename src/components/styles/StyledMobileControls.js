@@ -5,7 +5,7 @@ export const StyledControlWrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-items: flex-start;
-  margin: 1.5rem;
+  margin: 1rem;
   padding: 0.5rem;
 `;
 
@@ -14,6 +14,7 @@ export const StyledMobileControls = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   width: 98%;
+  margin: 0.5rem;
 
   div {
     display: flex;
@@ -22,9 +23,10 @@ export const StyledMobileControls = styled.div`
   }
 `;
 
-// export const StyledMobileColumn = styled.div`
-
-// `;
+export const StyleMCStartStop = styled(StyledMobileControls)`
+  justify-content: center;
+  align-items: center;
+`;
 
 export const StyledDirButton = styled.button`
   box-sizing: border-box;
@@ -36,8 +38,13 @@ export const StyledDirButton = styled.button`
   background: #999;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 0.9rem;
-  outline: none;
-  cursor: pointer;
+`;
+
+export const StyledRotateCe = styled(StyledMobileControls)`
+  justify-content: flex-end;
+  align-self: flex-end;
+  align-items: flex-end;
+  width: 60%;
 `;
 
 export const StyledRotateButton = styled.button`
@@ -49,10 +56,9 @@ export const StyledRotateButton = styled.button`
   color: #000;
   background: #7d2625;
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.9rem;
+  font-size: 1rem;
   outline: none;
   cursor: pointer;
-  align-self: flex-start;
   box-shadow: 0px 0px 2px 1px #999;
 `;
 
