@@ -121,8 +121,6 @@ const Tetris = () => {
 		setTogglePause(true)
 	}
 
-
-	
 	const move = ({key}) => {
 		if (!gameOver) {
 			// left arrow
@@ -158,7 +156,7 @@ const Tetris = () => {
 
 		<StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)} onKeyUp={keyUp}>
 			<StyledTetris>
-				<Stage stage={stage} />
+				<Stage stage={stage} gameOver={gameOver} notPaused={togglePause} player={player}/>
 				<aside>
 					
 					{!mobileView && <FutureTetro futureTetro={futureTetro} />}
@@ -179,7 +177,9 @@ const Tetris = () => {
 
 				{mobileView &&
 				<MobileControls movePlayer={movePlayer} dropPlayer={dropPlayer} setDropTime={setDropTime} playerRotate={playerRotate} level={level} stage={stage}>
-					<PauseButton state={togglePause}  callback={pauseGame} />
+
+					{!gameOver && <PauseButton state={togglePause} callback={pauseGame} />}
+
 				</MobileControls>}
 
 			</StyledTetris>
