@@ -15,29 +15,30 @@ export const StyledTetris = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
   aside {
-	  padding: 0 0 max(1rem, 3vmin) 0;
-	  order: -1;
-	  display: flex;
+    padding: 0 0 max(1rem, 3vmin) 0;
+    order: -1;
+    display: flex;
 
-	  & > div {
-		display: flex;
-		}
-	}
-	
-	@media screen and (min-width: 600px) {
-		flex-direction: row;
-		align-items: flex-start;
-		
-		aside {
-			flex-direction: column;
-			padding: 0 max(1rem, 6vmin);
-			order: 0;
+    & > div {
+      display: flex;
+    }
+  }
 
-			& > div {
-				flex-direction: column;
-			}
-		  }
+  @media screen and (min-width: 600px) {
+    flex-direction: row;
+    align-items: flex-start;
+
+    aside {
+      flex-direction: column;
+      padding: 0 max(1rem, 6vmin);
+      order: 0;
+
+      & > div {
+        flex-direction: column;
+        margin-top: 0.7rem;
+      }
+    }
   }
 `;

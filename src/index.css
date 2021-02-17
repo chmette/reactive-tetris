@@ -11,8 +11,14 @@ body * {
 }
 
 main {
-  height: 100vh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+  min-height: 100vh;
+}
+
+@media (min-width: 600px) {
+  main {
+    height: 100vh;
+  }
 }

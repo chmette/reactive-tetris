@@ -13,15 +13,15 @@ export const StyledDisplay = styled.div`
   color: ${(props) => (props.gameOver ? "red" : "#999")};
   background: #000;
   font-family: Pixel, Arial, Helvetica, sans-serif;
-  font-size: 0.8rem;
-  
-  @media screen and (min-width: 600px) {
-	  margin-bottom: 1.2rem;
-	  flex-direction: row;
-	  padding: 1.5rem 1rem 1.2rem;
+  font-size: 0.7rem;
 
-	  span:nth-of-type(2) {
-		margin-left: 1ch;
-	  }
-	}
+  @media screen and (min-width: 600px) {
+    margin-bottom: 1.2rem;
+    flex-direction: row;
+    padding: 1.5rem 1rem 1.2rem;
+    font-size: 0.8rem;
+    span:nth-of-type(2) {
+      margin-left: 1ch;
+    }
+  }
 `;
