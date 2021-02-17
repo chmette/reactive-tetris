@@ -50,8 +50,8 @@ const Tetris = () => {
 	}
 
 	const startGame = () => {
-		console.log('start-game test')
-		//reset everything
+		console.log('startGame')
+        //reset everything
 		setStage(createStage());
 		setDropTime(1000)
 		resetPlayer();
@@ -73,7 +73,9 @@ const Tetris = () => {
 			setDropTime(1000 / (level + 1) + 200)
 			console.log('Game continues');
 		}
+
 	}
+	
 
 	const drop = () => {
 		// Add up level when rows are cleared
@@ -98,6 +100,7 @@ const Tetris = () => {
 		}
 	}
 
+
 	const keyUp = ({key})=>{
 		if(!gameOver){
 			if(key==='ArrowDown') {
@@ -119,7 +122,6 @@ const Tetris = () => {
 
 	
 	const move = ({key}) => {
-	
 		if (!gameOver) {
 			// left arrow
 			if (key === 'ArrowLeft' ) {
@@ -136,7 +138,6 @@ const Tetris = () => {
                 playerRotate(stage, 1)
             }else if (key === ' ') {
 				playerRotate(stage,1)
-
 			}
 		}
 	}
