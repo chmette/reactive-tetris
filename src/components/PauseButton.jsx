@@ -4,7 +4,7 @@ import {StyledPauseButton} from './styles/StyledPauseButton'
 const PauseButton = ({state,callback}) => {
     return (
        
-            <StyledPauseButton  onClick={callback}>
+            <StyledPauseButton onClick={callback}>
                 {state ? 'Pause Game': 'Continue'}
             </StyledPauseButton>
         

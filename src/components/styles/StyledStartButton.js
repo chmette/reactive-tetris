@@ -1,8 +1,6 @@
 import styled from "styled-components";
 
-// because of the keyboard functionality of space (accept ) and enter (submit) to a button, we used a div in these place to prevent these.
-
-export const StyledStartButton = styled.div`
+export const StyledStartButton = styled.button`
   box-sizing: border-box;
   padding: 1.5rem 1rem 1.2rem;
   border-radius: 1.2rem;
@@ -13,7 +11,6 @@ export const StyledStartButton = styled.div`
   font-size: 1rem;
   outline: none;
   cursor: pointer;
-  text-align: center;
 
   @media screen and (min-width: 600px) {
     width: 15ch;
