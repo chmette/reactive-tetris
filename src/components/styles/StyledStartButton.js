@@ -10,12 +10,13 @@ export const StyledStartButton = styled.div`
   color: white;
   background: #333;
   font-family: Pixel, Arial, Helvetica, sans-serif;
-  font-size: 1rem;
+  font-size: 0.9rem;
   outline: none;
   cursor: pointer;
   text-align: center;
 
   @media screen and (min-width: 600px) {
     width: 15ch;
+    font-size: 1rem;
   }
 `;

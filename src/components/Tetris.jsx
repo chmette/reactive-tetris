@@ -20,6 +20,7 @@ import Display from './Display';
 import StartButton from './StartButton';
 import PauseButton from './PauseButton';
 
+
 import MobileControls from './MobileControls';
 
 
@@ -32,6 +33,7 @@ const Tetris = () => {
 	const [gameOver, setGameOver] = useState(false);
 	const [btnText, setBtnText] = useState('Start Game')
 	const [togglePause, setTogglePause] = useState(true)
+	
 
 	// media queries
 	const mobileView = useMediaQuery({ maxWidth: 600 });
@@ -177,11 +179,12 @@ const Tetris = () => {
 
 				{mobileView &&
 				<MobileControls movePlayer={movePlayer} dropPlayer={dropPlayer} setDropTime={setDropTime} playerRotate={playerRotate} level={level} stage={stage}>
-					<PauseButton state={togglePause} callback={pauseGame} />
+					<PauseButton state={togglePause}  callback={pauseGame} />
 				</MobileControls>}
 
 			</StyledTetris>
 
+		
 		</StyledTetrisWrapper>
 
 

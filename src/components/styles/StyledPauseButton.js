@@ -18,5 +18,6 @@ export const StyledPauseButton = styled.div`
 
   @media screen and (min-width: 600px) {
     width: 15ch;
+    font-size: 0.8rem;
   }
 `;
