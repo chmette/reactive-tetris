@@ -31,8 +31,8 @@ import FutureTetro from './FutureTetro';
 const Tetris = () => {
 	const [dropTime, setDropTime] = useState(null);
 	const [gameOver, setGameOver] = useState(false);
-	const [btnText, setBtnText] = useState('Start Game')
-	const [togglePause, setTogglePause] = useState(true)
+	const [btnText, setBtnText] = useState('Start Game');
+	const [togglePause, setTogglePause] = useState(true);
 	
 
 	// media queries
@@ -67,15 +67,19 @@ const Tetris = () => {
 	}
 
 	const pauseGame = () => {
-		if (player.tetromino.length > 1) {
-			setTogglePause(!togglePause)
-			if (togglePause === true) {
-				setDropTime(null)
-				console.log('Game paused')
-			} else {
-				setDropTime(1000 / (level + 1) + 200)
-				console.log('Game continues');
-			}
+		const isGameStarted = player.tetromino.length > 1;
+		
+		if (!isGameStarted || gameOver) {
+			return;
+		}
+
+		setTogglePause(!togglePause);
+		if (togglePause === true) {
+			setDropTime(null)
+			console.log('Game paused')
+		} else {
+			setDropTime(1000 / (level + 1) + 200)
+			console.log('Game continues');
 		}
 	}
 
