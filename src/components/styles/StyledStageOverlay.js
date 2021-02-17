@@ -4,9 +4,6 @@ const StyledStageOverlay = styled.section`
 	position: absolute;
 	width: 100%;
 	height: 100%;
-	height: -moz-available;
-	height: -webkit-fill-available;
-	height: fill-available;
 	background-color: rgba(0, 0, 0, 0.7);
 	text-align: center;
 	font-size: 2.9rem;
