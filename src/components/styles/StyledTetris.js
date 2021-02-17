@@ -17,12 +17,18 @@ export const StyledTetris = styled.div`
   align-items: center;
 
   aside {
+	width: 100%;
     padding: 0 0 max(1rem, 3vmin) 0;
     order: -1;
     display: flex;
+	justify-content: space-between;
 
     & > div {
       display: flex;
+
+	  &:first-child {
+		  flex-grow: 1;
+	  }
     }
   }
 
@@ -34,6 +40,7 @@ export const StyledTetris = styled.div`
       flex-direction: column;
       padding: 0 max(1rem, 6vmin);
       order: 0;
+	  width: max-content;
 
       & > div {
         flex-direction: column;

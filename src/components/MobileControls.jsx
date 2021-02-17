@@ -1,6 +1,6 @@
 import React from 'react'
 import { IoArrowForwardOutline, IoArrowBackOutline, IoArrowDownOutline, IoRefreshOutline } from 'react-icons/io5';
-import { StyledDirButton, StyledControlWrapper, StyledMobileControls, StyledRotateButton } from './styles/StyledMobileControls'
+import { StyledDirButton, StyledControlWrapper, StyledMobileControls, StyledRotateButton } from './styles/StyledMobileControls';
 
 
 const MobileControls = ({ movePlayer, dropPlayer, setDropTime, level, playerRotate, stage, children }) => {

@@ -6,9 +6,10 @@ export const StyledDisplay = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 0.5rem 0.7rem;
-  border: 4px solid #333;
+  margin: 0 max(0.2rem, 1vw) 0;
   width: max(15ch, 100%);
+  padding: 0.5rem 0.7rem 0.1rem 0.7rem;
+  border: 4px solid #333;
   border-radius: 1.2rem;
   color: ${(props) => (props.gameOver ? "red" : "#999")};
   background: #000;
@@ -16,10 +17,11 @@ export const StyledDisplay = styled.div`
   font-size: 0.7rem;
 
   @media screen and (min-width: 600px) {
-    margin-bottom: 1.2rem;
+    margin: 0 0 max(0.2rem, 1vw) 0;
     flex-direction: row;
     padding: 1.5rem 1rem 1.2rem;
     font-size: 0.8rem;
+
     span:nth-of-type(2) {
       margin-left: 1ch;
     }
