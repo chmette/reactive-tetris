@@ -152,6 +152,7 @@ const Tetris = () => {
 	}, dropTime);
 
 	return (
+
 		<StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)} onKeyUp={keyUp}>
 			<StyledTetris>
 				<Stage stage={stage} />
@@ -165,6 +166,7 @@ const Tetris = () => {
 							<Display text="Rows:" value={rows} />
 							<Display text="Level:" value={level} />
 							{!mobileView && <PauseButton state={togglePause} callback={pauseGame} />}
+
 							
 						</div>
 					)}
