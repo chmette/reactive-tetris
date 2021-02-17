@@ -16,9 +16,9 @@ const StyledStageOverlay = styled.section`
 	justify-content: center;
 
 	span {
+		padding: 1rem 0;
 		color: #999;
-		background-image: linear-gradient(rgb(80, 227, 230), rgb(36, 95, 223), rgb(255, 51, 204), rgb(223, 217, 36), rgb(48, 211, 56), rgb(132, 61, 198), rgb(227, 78, 78));
-		background-image: linear-gradient(rgb(36, 95, 223), rgb(255, 51, 204), rgb(223, 217, 36), rgb(48, 211, 56));
+		background-image: linear-gradient(rgb(80,227,230),rgb(132,61,198),rgb(255,51,204));
 		color: transparent;
 		background-clip: text;
 		-webkit-background-clip: text;
