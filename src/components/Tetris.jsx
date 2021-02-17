@@ -147,7 +147,7 @@ const Tetris = () => {
 
 		
 			
-				<StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)} onKeyUp={keyUp}>
+				<StyledTetrisWrapper role="button" tabIndex="0"  onKeyDown={e => move(e)} onKeyUp={keyUp}>
 					<StyledTetris>
 						<Stage stage={stage}/>
 						<aside>
