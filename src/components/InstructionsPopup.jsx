@@ -1,5 +1,5 @@
 import React from 'react';
-import {IoPlayOutline, IoPauseOutline, IoArrowForwardOutline, IoArrowBackOutline, IoArrowDownOutline, IoRefreshOutline, IoClose} from 'react-icons/io5';
+import {IoArrowForwardOutline, IoArrowBackOutline, IoArrowDownOutline, IoArrowUpOutline, IoRefreshOutline, IoClose} from 'react-icons/io5';
 import StyledInstructionsPopup from './styles/StyledInstructionsPopup';
 
 const InstructionsPopup = ({onPopupHandle}) => {
@@ -13,15 +13,13 @@ const InstructionsPopup = ({onPopupHandle}) => {
 			<p>Your objective is to get tetrominos to fill all the empty cells in horizontal lines; whenever you do this, the blocks vanish and you earn points.</p>
 			<p>More points == higher levels == higher speed == greater difficulty.</p>
 			<div>
-				<span><IoPlayOutline/><IoPauseOutline/></span>
-				<span>start game / pause</span>
 				<span><IoArrowForwardOutline/></span>
 				<span>move right</span>
 				<span><IoArrowBackOutline/></span>
 				<span>move left</span>
 				<span><IoArrowDownOutline/></span>
 				<span>drop</span>
-				<span><IoRefreshOutline/></span>
+				<span><IoArrowUpOutline/>|<IoRefreshOutline/></span>
 				<span>rotate clockwise</span>
 			</div>
 		</StyledInstructionsPopup>

@@ -26,6 +26,9 @@ export const StyledMobileControls = styled.div`
 export const StyleMCStartStop = styled(StyledMobileControls)`
   justify-content: center;
   align-items: center;
+  div {
+    width: 14ch;
+  }
 `;
 
 export const StyledDirButton = styled.button`

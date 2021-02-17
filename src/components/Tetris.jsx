@@ -36,7 +36,7 @@ const Tetris = () => {
 	
 
 	// media queries
-	const mobileView = useMediaQuery({ maxWidth: 600 });
+	const mobileView = useMediaQuery({ maxWidth: 599 });
 
 	const [player, updatePlayerPos, resetPlayer, playerRotate, futureTetro] = usePlayer();
 	const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
@@ -67,17 +67,17 @@ const Tetris = () => {
 	}
 
 	const pauseGame = () => {
-		setTogglePause(!togglePause)
-		if (togglePause === true) {
-			setDropTime(null)
-			console.log('Game paused')
-		} else {
-			setDropTime(1000 / (level + 1) + 200)
-			console.log('Game continues');
+		if (player.tetromino.length > 1) {
+			setTogglePause(!togglePause)
+			if (togglePause === true) {
+				setDropTime(null)
+				console.log('Game paused')
+			} else {
+				setDropTime(1000 / (level + 1) + 200)
+				console.log('Game continues');
+			}
 		}
-
 	}
-	
 
 	const drop = () => {
 		// Add up level when rows are cleared
@@ -166,7 +166,7 @@ const Tetris = () => {
 							<Display text="Score:" value={score} />
 							<Display text="Rows:" value={rows} />
 							<Display text="Level:" value={level} />
-							{!mobileView && <PauseButton mobile={mobileView} state={togglePause} callback={pauseGame} />}
+							{!mobileView && <PauseButton mobile={mobileView} state={togglePause} callback={pauseGame} player={player}/>}
 
 							
 						</div>
@@ -177,7 +177,7 @@ const Tetris = () => {
 
 				{mobileView &&
 				<MobileControls movePlayer={movePlayer} dropPlayer={dropPlayer} setDropTime={setDropTime} playerRotate={playerRotate} level={level} stage={stage}>
-					<PauseButton state={togglePause} mobile={mobileView}  callback={pauseGame} />
+					<PauseButton state={togglePause} mobile={mobileView}  callback={pauseGame} player={player} />
 					<StartButton text={btnText} callback={startGame} />
 
 				</MobileControls>}

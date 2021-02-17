@@ -7,8 +7,8 @@ export const StyledPauseButton = styled.div`
   padding: 1.1rem 0.8rem 1rem;
   margin: 0.2rem;
   border-radius: 1.2rem;
-  border: 3px solid #333;
-  color: #999;
+  border: 2px solid #333;
+  color: ${(props) => (props.fadeText ? "#999" : "white")};
   background: #030303;
   font-family: Pixel, Arial, Helvetica, sans-serif;
   font-size: 0.7rem;
@@ -17,8 +17,9 @@ export const StyledPauseButton = styled.div`
   text-align: center;
 
   @media screen and (min-width: 600px) {
-    width: 15ch;
     font-size: 0.8rem;
-    margin: 1rem;
+    padding: 1.5rem 1rem 1.2rem;
+    margin: max(0.2rem, 1vw) 0 0 0;
+    color: ${(props) => (props.fadeText ? "#999" : "white")};
   }
 `;

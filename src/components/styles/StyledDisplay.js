@@ -9,7 +9,7 @@ export const StyledDisplay = styled.div`
   margin: 0 max(0.2rem, 1vw) 0;
   width: max(15ch, 100%);
   padding: 0.5rem 0.7rem 0.1rem 0.7rem;
-  border: 4px solid #333;
+  border: 2px solid #333;
   border-radius: 1.2rem;
   color: ${(props) => (props.gameOver ? "red" : "#999")};
   background: #000;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const StyledFooter = styled.footer`
   background-color: #000;
-  color: #fff;
+  color: #999;
   width: 100%;
   padding: 0.5rem 1rem 0 1rem;
   font-family: Arial, Helvetica, sans-serif;
@@ -12,8 +12,8 @@ export const StyledFooter = styled.footer`
 
   a {
     color: rgb(223, 173, 36);
-    text-decoration: underline;
     font-weight: bold;
+    text-decoration: none;
   }
 
   @media screen and (max-width: 600px) {
