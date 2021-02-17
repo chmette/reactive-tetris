@@ -150,7 +150,7 @@ const Tetris = () => {
 	return (
 		<StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)} onKeyUp={keyUp}>
 			<StyledTetris>
-				<Stage stage={stage} />
+				<Stage stage={stage} gameOver={gameOver} notPaused={togglePause} player={player}/>
 				<aside>
 					
 					{!mobileView && <FutureTetro futureTetro={futureTetro} />}
