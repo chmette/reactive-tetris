@@ -175,7 +175,7 @@ const Tetris = () => {
 
 				{mobileView &&
 				<MobileControls movePlayer={movePlayer} dropPlayer={dropPlayer} setDropTime={setDropTime} playerRotate={playerRotate} level={level} stage={stage}>
-					<PauseButton state={togglePause} callback={pauseGame} />
+					{!gameOver && <PauseButton state={togglePause} callback={pauseGame} />}
 				</MobileControls>}
 
 			</StyledTetris>
