@@ -1,8 +1,18 @@
 body {
   margin: 0;
 }
+body * {
+  font-family: Pixel, Arial, Helvetica, sans-serif;
+}
 
 @font-face {
   font-family: "Pixel";
   src: url("font/Pixel-LCD-7.woff") format("woff");
+}
+
+main {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
 }

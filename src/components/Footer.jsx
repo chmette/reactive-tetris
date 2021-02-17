@@ -1,11 +1,14 @@
 import React from 'react'
-import {MdCopyright} from 'react-icons/md'
+
+import { StyledFooter } from './styles/StyledFooter'
+
 
 const Footer = () => {
     return (
-        <div>
-            <p> <MdCopyright/>Made by  <a href="https://github.com/chmette">chmette</a> and <a href="https://github.com/olhanotolga">olhanotolga</a>, based on <a href="https://www.youtube.com/watch?v=ZGOaCxX8HIU">weibenfalk’s tutorial</a> </p>
-        </div>
+        <StyledFooter>
+            <p> Made by  <a href="https://github.com/chmette">chmette</a> and <a href="https://github.com/olhanotolga">olhanotolga</a>, based on <a href="https://www.youtube.com/watch?v=ZGOaCxX8HIU">weibenfalk’s tutorial</a> </p>
+        </StyledFooter>
+
     )
 }
 
