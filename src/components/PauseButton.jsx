@@ -1,11 +1,14 @@
 import React from 'react'
 import {StyledPauseButton} from './styles/StyledPauseButton'
 
-const PauseButton = ({state,callback}) => {
+const PauseButton = ({state,callback, mobile}) => {
+
+   const pauseText = mobile ? 'Pause' : 'Pause Game '
+
     return (
        
             <StyledPauseButton  onClick={callback}>
-                {state ? 'Pause Game': 'Continue'}
+                {state ? pauseText: 'Continue'}
             </StyledPauseButton>
         
     )

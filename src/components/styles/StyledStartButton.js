@@ -14,6 +14,7 @@ export const StyledStartButton = styled.div`
   outline: none;
   cursor: pointer;
   text-align: center;
+  margin: 0.2rem;
 
   @media screen and (min-width: 600px) {
     width: 15ch;

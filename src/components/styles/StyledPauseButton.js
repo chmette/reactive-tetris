@@ -5,7 +5,7 @@ import styled from "styled-components";
 export const StyledPauseButton = styled.div`
   box-sizing: border-box;
   padding: 1.1rem 0.8rem 1rem;
-  margin: 1rem auto;
+  margin: 0.2rem;
   border-radius: 1.2rem;
   border: 3px solid #333;
   color: #999;
@@ -19,5 +19,6 @@ export const StyledPauseButton = styled.div`
   @media screen and (min-width: 600px) {
     width: 15ch;
     font-size: 0.8rem;
+    margin: 1rem;
   }
 `;
