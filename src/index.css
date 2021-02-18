@@ -1,7 +1,9 @@
 body {
 	margin: 0;
-	overflow: hidden;
+	overscroll-behavior: none;
+	background-color: black;
 }
+
 body * {
 	font-family: Pixel, Arial, Helvetica, sans-serif;
 	-webkit-touch-callout: none;
@@ -20,12 +22,7 @@ body * {
 main {
 	display: flex;
 	flex-direction: column;
-	overflow: hidden;
 	min-height: 100vh;
+	overflow: hidden;
 }
 
-@media (min-width: 600px) {
-	main {
-		height: 100vh;
-	}
-}

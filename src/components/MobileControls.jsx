@@ -1,6 +1,6 @@
 import React from 'react'
 import { IoArrowForwardOutline, IoArrowBackOutline, IoArrowDownOutline, IoRefreshOutline } from 'react-icons/io5';
-import { StyledDirButton,StyledRotateCe,StyleMCStartStop, StyledControlWrapper, StyledMobileControls, StyledRotateButton } from './styles/StyledMobileControls'
+import { StyledDirButton, StyleMCStartStop, StyledControlWrapper, StyledMobileControls, StyledRotateButton } from './styles/StyledMobileControls'
 
 
 const MobileControls = ({ movePlayer, dropPlayer, setDropTime, level, playerRotate, stage, children }) => {
@@ -28,12 +28,9 @@ const MobileControls = ({ movePlayer, dropPlayer, setDropTime, level, playerRota
                 </StyledDirButton>			
 			
 				{/* rotate */}
-				<StyledRotateCe>
-                    <StyledRotateButton onClick={() => playerRotate(stage, 1)}>
-                        <IoRefreshOutline />
-                    </StyledRotateButton>
-                </StyledRotateCe>
-               
+                <StyledRotateButton onClick={() => playerRotate(stage, 1)}>
+                    <IoRefreshOutline />
+                </StyledRotateButton>
 
 			</StyledMobileControls>
 

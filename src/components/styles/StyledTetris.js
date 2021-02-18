@@ -19,7 +19,7 @@ export const StyledTetris = styled.div`
 
   aside {
 	width: 100%;
-    padding: 0 0 max(1rem, 3vmin) 0;
+    padding: 0 0 0.5rem 0;
     order: -1;
     display: flex;
 	justify-content: space-between;

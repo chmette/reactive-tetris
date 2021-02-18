@@ -5,16 +5,12 @@ export const StyledControlWrapper = styled.section`
   display: flex;
   flex-direction: column;
   justify-items: flex-start;
-  margin: 1rem;
   padding: 0.5rem;
 `;
 
 export const StyledMobileControls = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
-  width: 98%;
-  margin: 0.5rem;
 
   div {
     display: flex;
@@ -43,13 +39,6 @@ export const StyledDirButton = styled.button`
   font-size: 0.9rem;
 `;
 
-export const StyledRotateCe = styled(StyledMobileControls)`
-  justify-content: flex-end;
-  align-self: flex-end;
-  align-items: flex-end;
-  width: 60%;
-`;
-
 export const StyledRotateButton = styled.button`
   box-sizing: border-box;
   height: 3.5rem;
@@ -63,6 +52,7 @@ export const StyledRotateButton = styled.button`
   outline: none;
   cursor: pointer;
   box-shadow: 0px 0px 2px 1px #999;
+  margin-left: auto;
 `;
 
 //   @media screen and (min-width: 600px) {
