@@ -180,7 +180,7 @@ const Tetris = () => {
 				</aside>
 
 				{mobileView &&
-				<MobileControls movePlayer={movePlayer} drop={drop} dropPlayer={dropPlayer} setDropTime={setDropTime} playerRotate={playerRotate} level={level} stage={stage}>
+				<MobileControls movePlayer={movePlayer} dropPlayer={dropPlayer} setDropTime={setDropTime} playerRotate={playerRotate} level={level} stage={stage}>
 					<PauseButton state={togglePause} mobile={mobileView}  callback={pauseGame} player={player} />
 					<StartButton text={btnText} callback={startGame} />
 

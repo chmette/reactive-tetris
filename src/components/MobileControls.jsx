@@ -4,23 +4,10 @@ import React from 'react'
 import { IoArrowForwardOutline, IoArrowBackOutline, IoArrowDownOutline, IoRefreshOutline } from 'react-icons/io5';
 import { StyledDirButton, StyleMCStartStop, StyledControlWrapper, StyledMobileControls, StyledRotateButton } from './styles/StyledMobileControls'
 
-// hook 
-import useLongPress from "../hooks/useLongPress";
-
 
 const MobileControls = ({ movePlayer, dropPlayer, setDropTime, level, playerRotate, stage, children }) => {
 
     
-
-
-
-   const arrowDownLongPress = useLongPress({dropPlayer},
-    500
-  );
-
-     console.log('intervalFunction:',arrowDownLongPress)
-
- // {...arrowDownLongPress}onTouchStart={dropPlayer}
 
 
 	return (
@@ -35,7 +22,7 @@ const MobileControls = ({ movePlayer, dropPlayer, setDropTime, level, playerRota
                 {/* move down  */}
                 <div>
 					<StyledDirButton disabled></StyledDirButton>
-					<StyledDirButton  {...arrowDownLongPress}   onClick={() => setDropTime(1000 / (level + 1))}>
+					<StyledDirButton  onTouchStart={dropPlayer} onClick={() => setDropTime(1000 / (level + 1))}>
                         <IoArrowDownOutline />
                     </StyledDirButton>
 				</div>
