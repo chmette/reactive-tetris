@@ -1,23 +1,28 @@
 import React from 'react'
+
+//style and Icons 
 import { IoArrowForwardOutline, IoArrowBackOutline, IoArrowDownOutline, IoRefreshOutline } from 'react-icons/io5';
 import { StyledDirButton, StyleMCStartStop, StyledControlWrapper, StyledMobileControls, StyledRotateButton } from './styles/StyledMobileControls'
 
 
 const MobileControls = ({ movePlayer, dropPlayer, setDropTime, level, playerRotate, stage, children, notPaused }) => {
 
+    
+
+
 	return (
 		<StyledControlWrapper>
 			<StyledMobileControls>
 				
                 {/* move left */}
-				<StyledDirButton onTouchStart={() => movePlayer(-1)}>
+				<StyledDirButton  onTouchStart={() => movePlayer(-1)}>
                     <IoArrowBackOutline />
                 </StyledDirButton>
 				
                 {/* move down  */}
                 <div>
 					<StyledDirButton disabled></StyledDirButton>
-					<StyledDirButton onTouchStart={dropPlayer} onClick={() => setDropTime(1000 / (level + 1))}>
+					<StyledDirButton  onTouchStart={dropPlayer} onClick={() => setDropTime(1000 / (level + 1))}>
                         <IoArrowDownOutline />
                     </StyledDirButton>
 				</div>

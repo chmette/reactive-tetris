@@ -11,6 +11,7 @@ export const StyledControlWrapper = styled.section`
 export const StyledMobileControls = styled.div`
   display: flex;
   flex-direction: row;
+  margin-right: 1rem;
 
   div {
     display: flex;
@@ -20,7 +21,8 @@ export const StyledMobileControls = styled.div`
 `;
 
 export const StyleMCStartStop = styled(StyledMobileControls)`
-padding-top: 0.3rem;
+  margin-top: 1.5rem;
+  padding-top: 0.3rem;
   justify-content: center;
   align-items: center;
   div {
