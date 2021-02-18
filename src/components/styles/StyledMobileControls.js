@@ -11,6 +11,7 @@ export const StyledControlWrapper = styled.section`
 export const StyledMobileControls = styled.div`
   display: flex;
   flex-direction: row;
+  margin-right: 1rem;
 
   div {
     display: flex;
