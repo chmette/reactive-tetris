@@ -12,18 +12,15 @@ const MobileControls = ({ movePlayer, dropPlayer, setDropTime, level, playerRota
 
     
 
-//      const backspaceLongPress = useLongPress(
-//     longPressBackspaceCallback,
-//     500
-//   );
+
 
    const arrowDownLongPress = useLongPress({dropPlayer},
     500
   );
 
-//     console.log(arrowDownLongPress)
+     console.log('intervalFunction:',arrowDownLongPress)
 
- //{...backspaceLongPress} {...arrowDownLongPress}
+ // {...arrowDownLongPress}onTouchStart={dropPlayer}
 
 
 	return (
@@ -38,7 +35,7 @@ const MobileControls = ({ movePlayer, dropPlayer, setDropTime, level, playerRota
                 {/* move down  */}
                 <div>
 					<StyledDirButton disabled></StyledDirButton>
-					<StyledDirButton  onPressIn={dropPlayer} onTouchStart={dropPlayer}  onClick={() => setDropTime(1000 / (level + 1))}>
+					<StyledDirButton  {...arrowDownLongPress}   onClick={() => setDropTime(1000 / (level + 1))}>
                         <IoArrowDownOutline />
                     </StyledDirButton>
 				</div>

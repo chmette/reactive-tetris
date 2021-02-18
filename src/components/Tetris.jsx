@@ -42,7 +42,7 @@ const Tetris = () => {
 	const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
 	const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared);
 
-	console.log('re-render!');
+	// console.log('re-render!');
 
 	//move tetronimo left and right  
 	const movePlayer = dir => {
@@ -119,7 +119,7 @@ const Tetris = () => {
 
 	const dropPlayer = () => {
 		// we turn off the interval when pressing arrow down 
-		//console.log('interval off');
+		console.log('interval worked');
 		setDropTime(null)
 		drop();
 		setTogglePause(true)
