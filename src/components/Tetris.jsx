@@ -47,7 +47,10 @@ const Tetris = () => {
 
 	//move tetronimo left and right  
 	const movePlayer = dir => {
-		if (!checkCollision(player, stage, { x: dir, y: 0 })) {
+		const hasCollided = checkCollision(player, stage, { x: dir, y: 0 });
+		// updates position only if no collision has occurred and the game is not paused and not over
+		const canMove = !hasCollided && togglePause && !gameOver;
+		if (canMove) {
 			updatePlayerPos({ x: dir, y: 0 })
 		}
 	}
@@ -84,6 +87,8 @@ const Tetris = () => {
 	}
 
 	const drop = () => {
+		if (gameOver) return;
+		
 		// Add up level when rows are cleared
 		if (rows > (level + 1) * 10) {
 			setLevel(prev => prev + 1);
@@ -126,23 +131,21 @@ const Tetris = () => {
 	}
 
 	const move = ({key}) => {
-		if (!gameOver) {
-			// left arrow
-			if (key === 'ArrowLeft' ) {
-				movePlayer(-1);
-			// right arrow
-			} else if (key === 'ArrowRight') {
-				movePlayer(1);
-			// down arrow
-			} else if (key === 'ArrowDown') {
-				dropPlayer();
-				
-            // up arrow      
-			}else if (key === 'ArrowUp') {
-                playerRotate(stage, 1)
-            }else if (key === ' ') {
-				playerRotate(stage,1)
-			}
+		// move left
+		if (key === 'ArrowLeft' ) {
+			movePlayer(-1);
+		}
+		// move right
+		else if (key === 'ArrowRight') {
+			movePlayer(1);
+		}
+		// down arrow: accelerate drop (also un-pauses game)
+		else if (key === 'ArrowDown') {
+			dropPlayer();
+		}
+		// rotate if not on pause and game is not over
+		else if (key === 'ArrowUp' || key === ' ') {
+			togglePause && !gameOver && playerRotate(stage, 1);
 		}
 	}
 
@@ -180,7 +183,7 @@ const Tetris = () => {
 				</aside>
 
 				{mobileView &&
-				<MobileControls movePlayer={movePlayer} dropPlayer={dropPlayer} setDropTime={setDropTime} playerRotate={playerRotate} level={level} stage={stage}>
+				<MobileControls movePlayer={movePlayer} dropPlayer={dropPlayer} setDropTime={setDropTime} playerRotate={playerRotate} level={level} stage={stage} notPaused={togglePause}>
 					<PauseButton state={togglePause} mobile={mobileView}  callback={pauseGame} gameStarted={hasGameStarted} />
 					<StartButton text={btnText} callback={startGame} />
 

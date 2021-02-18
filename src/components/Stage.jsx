@@ -6,7 +6,6 @@ import StageOverlay from './StageOverlay';
 const Stage = ({ stage, gameOver, notPaused, gameStarted }) => {
 	
 	return (
-		// player.tetromino.length > 1
 		
 		<StyledStage width={stage[0].length} height={stage.length}>
 			{gameOver && <StageOverlay text="game over"/>}

@@ -3,7 +3,7 @@ import { IoArrowForwardOutline, IoArrowBackOutline, IoArrowDownOutline, IoRefres
 import { StyledDirButton, StyleMCStartStop, StyledControlWrapper, StyledMobileControls, StyledRotateButton } from './styles/StyledMobileControls'
 
 
-const MobileControls = ({ movePlayer, dropPlayer, setDropTime, level, playerRotate, stage, children }) => {
+const MobileControls = ({ movePlayer, dropPlayer, setDropTime, level, playerRotate, stage, children, notPaused }) => {
 
 	return (
 		<StyledControlWrapper>
@@ -28,7 +28,7 @@ const MobileControls = ({ movePlayer, dropPlayer, setDropTime, level, playerRota
                 </StyledDirButton>			
 			
 				{/* rotate */}
-                <StyledRotateButton onTouchStart={() => playerRotate(stage, 1)}>
+                <StyledRotateButton onTouchStart={() => notPaused && playerRotate(stage, 1)}>
                     <IoRefreshOutline />
                 </StyledRotateButton>
 
