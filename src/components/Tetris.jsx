@@ -33,6 +33,7 @@ const Tetris = () => {
 	const [gameOver, setGameOver] = useState(false);
 	const [btnText, setBtnText] = useState('Start Game');
 	const [togglePause, setTogglePause] = useState(true);
+	const [hasGameStarted, setHasGameStarted] = useState(false);
 	
 
 	// media queries
@@ -63,13 +64,12 @@ const Tetris = () => {
 		setGameOver(false);
 		setBtnText('Reset');
 		setTogglePause(true);
-
+		setHasGameStarted(true);
 	}
 
 	const pauseGame = () => {
-		const isGameStarted = player.tetromino.length > 1;
 		
-		if (!isGameStarted || gameOver) {
+		if (!hasGameStarted || gameOver) {
 			return;
 		}
 
@@ -160,7 +160,7 @@ const Tetris = () => {
 
 		<StyledTetrisWrapper role="button" tabIndex="0" onKeyDown={e => move(e)} onKeyUp={keyUp}>
 			<StyledTetris>
-				<Stage stage={stage} gameOver={gameOver} notPaused={togglePause} player={player}/>
+				<Stage stage={stage} gameOver={gameOver} notPaused={togglePause} gameStarted={hasGameStarted}/>
 				<aside>
 					
 					{!mobileView && <FutureTetro futureTetro={futureTetro} />}
@@ -170,7 +170,7 @@ const Tetris = () => {
 							<Display text="Score:" value={score} />
 							<Display text="Rows:" value={rows} />
 							<Display text="Level:" value={level} />
-							{!mobileView && <PauseButton mobile={mobileView} state={togglePause} callback={pauseGame} player={player}/>}
+							{!mobileView && <PauseButton mobile={mobileView} state={togglePause} callback={pauseGame} gameStarted={hasGameStarted}/>}
 
 							
 						</div>
@@ -181,7 +181,7 @@ const Tetris = () => {
 
 				{mobileView &&
 				<MobileControls movePlayer={movePlayer} dropPlayer={dropPlayer} setDropTime={setDropTime} playerRotate={playerRotate} level={level} stage={stage}>
-					<PauseButton state={togglePause} mobile={mobileView}  callback={pauseGame} player={player} />
+					<PauseButton state={togglePause} mobile={mobileView}  callback={pauseGame} gameStarted={hasGameStarted} />
 					<StartButton text={btnText} callback={startGame} />
 
 				</MobileControls>}
