@@ -126,24 +126,29 @@ const Tetris = () => {
 	}
 
 	const move = ({key}) => {
-		if (!gameOver) {
-			// left arrow
+		if (gameOver) {
+			return;
+		}
+		// the game is not paused:
+		if (togglePause) {
+			// move left
 			if (key === 'ArrowLeft' ) {
 				movePlayer(-1);
-			// right arrow
+			// move right
 			} else if (key === 'ArrowRight') {
 				movePlayer(1);
-			// down arrow
-			} else if (key === 'ArrowDown') {
-				dropPlayer();
-				
-            // up arrow      
-			}else if (key === 'ArrowUp') {
-                playerRotate(stage, 1)
-            }else if (key === ' ') {
-				playerRotate(stage,1)
+			// rotate
+			} else if (key === 'ArrowUp') {
+				playerRotate(stage, 1)
+			} else if (key === ' ') {
+				playerRotate(stage, 1)
 			}
 		}
+		
+		// down arrow: accelerate drop (also un-pauses game)
+		if (key === 'ArrowDown') {
+			dropPlayer();
+		} 
 	}
 
 	// useEffect changes some states depending on the current screen width:
