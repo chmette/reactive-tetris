@@ -42,18 +42,14 @@ export const StyledDirButton = styled.button`
   font-size: 0.9rem;
 `;
 
-export const StyledRotateButton = styled.button`
-  box-sizing: border-box;
+export const StyledRotateButton = styled(StyledDirButton)`
   height: 3.5rem;
   width: 3.5rem;
   border-radius: 50%;
-  border: none;
   color: #000;
   background: #7d2625;
-  font-family: Arial, Helvetica, sans-serif;
   font-size: 1rem;
   outline: none;
-  cursor: pointer;
   box-shadow: 0px 0px 2px 1px #999;
   margin-left: auto;
 `;
