@@ -8,7 +8,7 @@ export const StyledPauseButton = styled.div`
   margin: 0.2rem;
   border-radius: 1.2rem;
   border: 2px solid #333;
-  color: ${(props) => (props.fadeText ? "#999" : "white")};
+  color: ${(props) => (props.gameStarted ? "white" : "#999")};
   background: #030303;
   font-family: Pixel, Arial, Helvetica, sans-serif;
   font-size: 0.7rem;
