@@ -5,7 +5,6 @@ const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: flex-end;
   background: #000;
-  font-family: Pixel, Arial, Helvetica, sans-serif;
   font-size: 0.8rem;
   color: #999;
   padding: 1rem;

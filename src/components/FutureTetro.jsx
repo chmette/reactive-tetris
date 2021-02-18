@@ -10,8 +10,6 @@ const FutureTetro = ({ futureTetro }) => {
 		<StyledFutureTetro width={tetro.length} height={tetro[0].length}>
 			<div>
 				{hasGameStarted && tetro.map((row => row.map((cell, idx) => <Cell key={idx} type={cell[0]} />)))}
-				
-				{/* display the upcoming tetro */}
 			</div>
 		</StyledFutureTetro>
 	)

@@ -6,7 +6,6 @@ import StageOverlay from './StageOverlay';
 const Stage = ({ stage, gameOver, notPaused, gameStarted }) => {
 	
 	return (
-		
 		<StyledStage width={stage[0].length} height={stage.length}>
 			{gameOver && <StageOverlay text="game over"/>}
 			{!gameStarted && <StageOverlay text="get ready"/>}

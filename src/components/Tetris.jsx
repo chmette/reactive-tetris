@@ -7,7 +7,6 @@ import { createStage, checkCollision } from '../gameHelpers';
 // styles
 import { StyledTetrisWrapper, StyledTetris } from './styles/StyledTetris';
 
-
 //Hooks
 import { usePlayer } from '../hooks/usePlayer';
 import { useStage } from '../hooks/useStage';
@@ -19,31 +18,26 @@ import Stage from './Stage';
 import Display from './Display';
 import StartButton from './StartButton';
 import PauseButton from './PauseButton';
-
-
 import MobileControls from './MobileControls';
-
-
 import FutureTetro from './FutureTetro';
 
 
-
 const Tetris = () => {
+	// states
 	const [dropTime, setDropTime] = useState(null);
 	const [gameOver, setGameOver] = useState(false);
 	const [btnText, setBtnText] = useState('Start Game');
 	const [togglePause, setTogglePause] = useState(true);
 	const [hasGameStarted, setHasGameStarted] = useState(false);
 	
-
 	// media queries
 	const mobileView = useMediaQuery({ maxWidth: 599 });
 
+	// custom hooks
 	const [player, updatePlayerPos, resetPlayer, playerRotate, futureTetro] = usePlayer();
 	const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
 	const [score, setScore, rows, setRows, level, setLevel] = useGameStatus(rowsCleared);
 
-	// console.log('re-render!');
 
 	//move tetronimo left and right  
 	const movePlayer = dir => {
@@ -56,7 +50,6 @@ const Tetris = () => {
 	}
 
 	const startGame = () => {
-		console.log('startGame')
         //reset everything
 		setStage(createStage());
 		setDropTime(1000)
@@ -78,16 +71,14 @@ const Tetris = () => {
 
 		setTogglePause(!togglePause);
 		if (togglePause === true) {
-			setDropTime(null)
-			console.log('Game paused')
+			setDropTime(null);
 		} else {
-			setDropTime(1000 / (level + 1) + 200)
-			console.log('Game continues');
+			setDropTime(1000 / (level + 1) + 200);
 		}
 	}
 
 	const drop = () => {
-		if (gameOver) return;
+		if (gameOver || !hasGameStarted) return;
 		
 		// Add up level when rows are cleared
 		if (rows > (level + 1) * 10) {
@@ -101,7 +92,6 @@ const Tetris = () => {
 		} else {
 			// Game Over!
 			if (player.pos.y < 1) {
-				console.log("it's all over now");
 				setGameOver(true);
 				setDropTime(null);
 				setBtnText('Start Game')
@@ -111,26 +101,24 @@ const Tetris = () => {
 		}
 	}
 
-
 	const keyUp = ({key})=>{
 		if(!gameOver){
 			if(key==='ArrowDown') {
-				console.log('interval on ')
 				setDropTime(1000 / (level + 1));
 			}
 		}
 	}
 
-
 	const dropPlayer = () => {
 		// we turn off the interval when pressing arrow down 
-		console.log('interval worked');
 		setDropTime(null)
 		drop();
 		setTogglePause(true)
 	}
 
 	const move = ({key}) => {
+		if (gameOver  || !hasGameStarted) return;
+
 		// move left
 		if (key === 'ArrowLeft' ) {
 			movePlayer(-1);
@@ -164,37 +152,37 @@ const Tetris = () => {
 		<StyledTetrisWrapper role="button" tabIndex="0"  onKeyDown={e => move(e)} onKeyUp={keyUp}>
 			<StyledTetris>
 				<Stage stage={stage} gameOver={gameOver} notPaused={togglePause} gameStarted={hasGameStarted}/>
-				<aside>
-					
+				
+				<aside>	
 					{!mobileView && <FutureTetro futureTetro={futureTetro} />}
 					
-					{gameOver ? (<Display gameOver={gameOver} text='Game Over' />) : (
+					{gameOver ? (
+						<div>
+							<Display gameOver={gameOver} text='You scored:' value={score} />
+						</div>
+					) : (
 						<div>
 							<Display text="Score:" value={score} />
 							<Display text="Rows:" value={rows} />
 							<Display text="Level:" value={level} />
-							{!mobileView && <PauseButton mobile={mobileView} state={togglePause} callback={pauseGame} gameStarted={hasGameStarted}/>}
-
-							
+							{!mobileView && <PauseButton mobile={mobileView} state={togglePause} callback={pauseGame} gameStarted={hasGameStarted}/>}	
 						</div>
 					)}
 					{!mobileView && <StartButton text={btnText} callback={startGame} />}
-
 				</aside>
 
 				{mobileView &&
-				<MobileControls movePlayer={movePlayer} dropPlayer={dropPlayer} setDropTime={setDropTime} playerRotate={playerRotate} level={level} stage={stage} notPaused={togglePause}>
-					<PauseButton state={togglePause} mobile={mobileView}  callback={pauseGame} gameStarted={hasGameStarted} />
+				<MobileControls  currentAffairs={{
+					movePlayer, dropPlayer, setDropTime, playerRotate, level, stage, togglePause, gameOver, 
+				}} >
+					<PauseButton state={togglePause} mobile={mobileView} callback={pauseGame} gameStarted={hasGameStarted} />
 					<StartButton text={btnText} callback={startGame} />
 
 				</MobileControls>}
 
 			</StyledTetris>
-
 		
 		</StyledTetrisWrapper>
-
-
 	)
 }
 

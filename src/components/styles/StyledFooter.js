@@ -5,7 +5,6 @@ export const StyledFooter = styled.footer`
   color: #999;
   width: 100%;
   padding: 0.5rem 1rem 0 1rem;
-  font-family: Arial, Helvetica, sans-serif;
   text-align: center;
   align-self: center;
   font-size: 0.8rem;
@@ -20,4 +19,3 @@ export const StyledFooter = styled.footer`
     font-size: 0.7rem;
   }
 `;
-//

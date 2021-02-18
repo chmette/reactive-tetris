@@ -38,8 +38,12 @@ export const StyledDirButton = styled.button`
   border: none;
   color: black;
   background: #999;
-  font-family: Arial, Helvetica, sans-serif;
-  font-size: 0.9rem;
+
+  svg {
+    width: 1.3rem;
+    height: auto;
+    margin-top: 2px;
+  }
 `;
 
 export const StyledRotateButton = styled(StyledDirButton)`
@@ -48,11 +52,7 @@ export const StyledRotateButton = styled(StyledDirButton)`
   border-radius: 50%;
   color: #000;
   background: #7d2625;
-  font-size: 1rem;
   outline: none;
   box-shadow: 0px 0px 2px 1px #999;
   margin-left: auto;
 `;
-
-//   @media screen and (min-width: 600px) {
-//     width: 15ch;

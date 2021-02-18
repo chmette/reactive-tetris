@@ -6,8 +6,6 @@ export const createStage = () =>
     new Array(STAGE_WIDTH).fill([0, "clear"])
   );
 
-console.log(createStage());
-
 export const checkCollision = (player, stage, { x: moveX, y: moveY }) => {
   // looping through the rows of a tetromino-player
   for (let y = 0; y < player.tetromino.length; y += 1) {
@@ -37,8 +35,3 @@ export const checkCollision = (player, stage, { x: moveX, y: moveY }) => {
 // 	[0, X, X]
 // 	[0, X, 0]
 // ]
-
-// array[y][x]
-// array[3][2]
-// array[3] === undefined
-// undefined[2] — NOPE

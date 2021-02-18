@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 export const StyledStage = styled.div`
-	position: relative;
+  position: relative;
   display: grid;
   grid-template-rows: repeat(${(props) => props.height}, max(1.5rem, 3.5vmin));
   grid-template-columns: repeat(
@@ -18,7 +18,3 @@ export const StyledStage = styled.div`
     grid-gap: 1px;
   }
 `;
-
-//  @media screen and (min-width: 600px) {
-//     width: 15ch;
-//   }
