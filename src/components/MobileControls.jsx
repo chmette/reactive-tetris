@@ -10,7 +10,7 @@ const MobileControls = ({ movePlayer, dropPlayer, setDropTime, level, playerRota
 			<StyledMobileControls>
 				
                 {/* move left */}
-				<StyledDirButton onClick={() => movePlayer(-1)}>
+				<StyledDirButton onTouchStart={() => movePlayer(-1)}>
                     <IoArrowBackOutline />
                 </StyledDirButton>
 				
@@ -23,12 +23,12 @@ const MobileControls = ({ movePlayer, dropPlayer, setDropTime, level, playerRota
 				</div>
                 
 				{/* move right */}
-				<StyledDirButton onClick={() => movePlayer(1)}>
+				<StyledDirButton onTouchStart={() => movePlayer(1)}>
                     <IoArrowForwardOutline />
                 </StyledDirButton>			
 			
 				{/* rotate */}
-                <StyledRotateButton onClick={() => playerRotate(stage, 1)}>
+                <StyledRotateButton onTouchStart={() => playerRotate(stage, 1)}>
                     <IoRefreshOutline />
                 </StyledRotateButton>
 
