@@ -17,7 +17,7 @@ const MobileControls = ({ movePlayer, dropPlayer, setDropTime, level, playerRota
                 {/* move down  */}
                 <div>
 					<StyledDirButton disabled></StyledDirButton>
-					<StyledDirButton onTouchStart={dropPlayer} onClick={() => setDropTime(1000 / (level + 1))}>
+					<StyledDirButton  onTouchStart={dropPlayer}  Click={() => setDropTime(1000 / (level + 1))}>
                         <IoArrowDownOutline />
                     </StyledDirButton>
 				</div>
