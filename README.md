@@ -1,6 +1,6 @@
 # Reactive Tetris
 
-See it live here:
+See it live [on Netlify](https://reactive-tetris.netlify.app)
 
 ## About
 
