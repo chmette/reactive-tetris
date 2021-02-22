@@ -40,17 +40,25 @@ The tech stack:
 ## Features
 
 :video_game: Stage and tetrominos
+
 :video_game: Controls and rotation with arrow keys
+
 :video_game: Collision checking
+
 :video_game: Row sweeping
+
 :video_game: Dropping & speeding up the tetro with intervals
+
 :video_game: Score count, levels
 
 Bonus:
 
 :space_invader: Mobile Controls
+
 :space_invader: Pausing
+
 :space_invader: Stage overlays: Pause, GameOver, StartGame
+
 :space_invader: Coming next tetromino display
 
 ---
