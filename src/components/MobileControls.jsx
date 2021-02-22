@@ -7,7 +7,7 @@ import { StyledDirButton, StyleMCStartStop, StyledControlWrapper, StyledMobileCo
 
 const MobileControls = (props) => {
 
-    const {movePlayer, dropPlayer, setDropTime, level, playerRotate, stage, togglePause, gameOver} = props.currentAffairs;
+    const {movePlayer, setDropTime, level, playerRotate, stage, togglePause, gameOver} = props.currentAffairs;
 
 	return (
 		<StyledControlWrapper>
@@ -21,7 +21,7 @@ const MobileControls = (props) => {
                 {/* move down  */}
                 <div>
 					<StyledDirButton disabled></StyledDirButton>
-					<StyledDirButton  onTouchStart={dropPlayer} onClick={() => setDropTime(1000 / (level + 1))}>
+					<StyledDirButton onTouchStart={()=>setDropTime(50)} onTouchEnd={()=>setDropTime(1000 / (level + 1))} >
                         <IoArrowDownOutline />
                     </StyledDirButton>
 				</div>

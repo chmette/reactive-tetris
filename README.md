@@ -1,70 +1,78 @@
-# Getting Started with Create React App
+# Reactive Tetris
+
+See it live here:
+
+## About
+
+A final project for the React module at DCI by [chmette](https://github.com/chmette) and [olhanotolga](https://github.com/olhanotolga)
+
+We wanted to make something interactive and challenging, that's how we came across games in general, and Tetris is a classic one!
+
+### About the Game
+
+Tetris is a puzzle tile-matching Computer Game from 1984 (with origins in the USSR).
+
+#### How to play
+
+The player needs to position the blocks (tetrominos) which come from the top of the screen. The player can move the blocks left and right and also rotate them clockwise. The objective is to get tetrominos to fill all the empty cells in horizontal lines; whenever this is done, the blocks vanish and the player earns points. More points == higher levels == higher speed == greater difficulty.
+
+---
+
+## Project Description
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+The tech stack:
 
-In the project directory, you can run:
+- React (with hooks)
+- styled components
+- react-icons
+- react-responsive
 
-### `npm start`
+### Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+<img src="./screenshots/tetris-desktop-game.png" alt="screenshot" width="800px" />
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+<img src="./screenshots/tetris-mobile-game.jpg" alt="screenshot" width="300px" /> <img src="./screenshots/tetris-mobile-pause.jpg" alt="screenshot" width="300px" />
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Features
 
-### `npm run build`
+-Stage and tetrominos
+-Key controls, rotation
+-Collision checking
+-Row sweeping
+-Droping & speeding up the tetro with intervals
+-Score count, levels
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+-Mobile Controls,
+-Pausing
+-Overlays: Pause,GameOver,StartGame
+-Coming next tetromino stage
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Learnings
 
-### `npm run eject`
+Game logic (the notions of player and stage, their interaction)
+making something this visual
+the use of a CSS in JS library (styled components)
+extended use of custom hooks
+making react apps responsive on mobile (adapting UI to device/screen)
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+---
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Cloning and using locally
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+1. Clone the repo locally: `git clone git@github.com:chmette/reactive-tetris.git`
+2. go to the project folder: `cd reactive-tetris`
+3. install the dependencies with `npm install`
+4. run `npm start` to view the project on your local host
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+## Credits
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thanks to Thomas Weibenfalk whose [amazing tutorial](https://youtu.be/ZGOaCxX8HIU) served as the base for this project
+He has more awesome Projects on [his GitHub Page](https://github.com/weibenfalk)
