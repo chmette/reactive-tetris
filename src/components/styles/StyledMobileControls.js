@@ -25,6 +25,7 @@ export const StyleMCStartStop = styled(StyledMobileControls)`
   padding-top: 0.3rem;
   justify-content: center;
   align-items: center;
+  margin-right: 0rem;
   div {
     width: 14ch;
   }

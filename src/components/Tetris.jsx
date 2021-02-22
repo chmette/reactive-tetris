@@ -173,7 +173,7 @@ const Tetris = () => {
 
 				{mobileView &&
 				<MobileControls  currentAffairs={{
-					movePlayer, dropPlayer, setDropTime, playerRotate, level, stage, togglePause, gameOver, 
+					movePlayer, dropPlayer, setDropTime, playerRotate, level, stage, togglePause, gameOver, setTogglePause
 				}} >
 					<PauseButton state={togglePause} mobile={mobileView} callback={pauseGame} gameStarted={hasGameStarted} />
 					<StartButton text={btnText} callback={startGame} />
