@@ -4,7 +4,7 @@ See it live [on Netlify](https://reactive-tetris.netlify.app)
 
 ## About
 
-A final project for the React module at DCI by [chmette](https://github.com/chmette) and [olhanotolga](https://github.com/olhanotolga)
+A final project for the React module at DCI by [chmette](https://github.com/chmette) and [olhanotolga](https://github.com/olhanotolga).
 
 We wanted to make something interactive and challenging, that's how we came across games in general, and Tetris is a classic one!
 
@@ -39,27 +39,30 @@ The tech stack:
 
 ## Features
 
--Stage and tetrominos
--Key controls, rotation
--Collision checking
--Row sweeping
--Droping & speeding up the tetro with intervals
--Score count, levels
+:video_game: Stage and tetrominos
+:video_game: Controls and rotation with arrow keys
+:video_game: Collision checking
+:video_game: Row sweeping
+:video_game: Dropping & speeding up the tetro with intervals
+:video_game: Score count, levels
 
--Mobile Controls,
--Pausing
--Overlays: Pause,GameOver,StartGame
--Coming next tetromino stage
+Bonus:
+
+:space_invader: Mobile Controls
+:space_invader: Pausing
+:space_invader: Stage overlays: Pause, GameOver, StartGame
+:space_invader: Coming next tetromino display
 
 ---
 
 ## Learnings
 
-Game logic (the notions of player and stage, their interaction)
-making something this visual
-the use of a CSS in JS library (styled components)
-extended use of custom hooks
-making react apps responsive on mobile (adapting UI to device/screen)
+- Game logic (the notions of player and stage, their interaction)
+- Making something this visual
+- Using a CSS in JS library (styled components)
+- Extended use of custom hooks
+- Separating concerns with the help of custom hooks (e.g. keeping player and stage functionality separate)
+- Responsiveness in React apps (adapting UI to device/screen, displaying components conditionally)
 
 ---
 
@@ -74,5 +77,4 @@ making react apps responsive on mobile (adapting UI to device/screen)
 
 ## Credits
 
-Thanks to Thomas Weibenfalk whose [amazing tutorial](https://youtu.be/ZGOaCxX8HIU) served as the base for this project
-He has more awesome Projects on [his GitHub Page](https://github.com/weibenfalk)
+Thanks to Thomas Weibenfalk whose [amazing tutorial :arrow_upper_right:](https://youtu.be/ZGOaCxX8HIU) served as the base for this project. He has more awesome Projects on [his GitHub Page :arrow_upper_right:](https://github.com/weibenfalk).
