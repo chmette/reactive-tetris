@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {useMediaQuery} from 'react-responsive';
+import {isMobile} from 'react-device-detect';
 //Game Helper Functions
 import { createStage, checkCollision } from '../gameHelpers';
 // styles
@@ -27,7 +28,7 @@ const Tetris = () => {
 	const [hasGameStarted, setHasGameStarted] = useState(false);
 	
 	// media queries
-	const mobileView = useMediaQuery({ maxWidth: 599 });
+	const isHighLandscape = useMediaQuery({ minHeight: 415 , orientation: 'landscape'});
 
 	// custom hooks
 	const [player, updatePlayerPos, resetPlayer, playerRotate, futureTetro] = usePlayer();
@@ -135,8 +136,8 @@ const Tetris = () => {
 
 	// useEffect changes some states depending on the current screen width:
 	useEffect(() => {
-		mobileView ? setBtnText('Start') : setBtnText('Start Game');
-	}, [mobileView])
+		isMobile ? setBtnText('Start') : setBtnText('Start Game');
+	}, [])
 
 	// custom hook by Dan Abramov ( starts interval )
 	useInterval(() => {
@@ -149,9 +150,10 @@ const Tetris = () => {
 			<StyledTetris>
 				<Stage stage={stage} gameOver={gameOver} notPaused={togglePause} gameStarted={hasGameStarted}/>
 				
+				{/* this checks whether it's a mobile device — mobile phone or tablet — and renders mobile controls */}
+				{(!isMobile || isHighLandscape) && <FutureTetro futureTetro={futureTetro} />}
+				
 				<aside>	
-					{!mobileView && <FutureTetro futureTetro={futureTetro} />}
-					
 					{gameOver ? (
 						<div>
 							<Display gameOver={gameOver} text='You scored:' value={score} />
@@ -161,17 +163,17 @@ const Tetris = () => {
 							<Display text="Score:" value={score} />
 							<Display text="Rows:" value={rows} />
 							<Display text="Level:" value={level} />
-							{!mobileView && <PauseButton mobile={mobileView} state={togglePause} callback={pauseGame} gameStarted={hasGameStarted}/>}	
+							{!isMobile && <PauseButton mobile={isMobile} state={togglePause} callback={pauseGame} gameStarted={hasGameStarted}/>}	
 						</div>
 					)}
-					{!mobileView && <StartButton text={btnText} callback={startGame} />}
+					{!isMobile && <StartButton text={btnText} callback={startGame} />}
 				</aside>
 
-				{mobileView &&
+				{isMobile &&
 				<MobileControls  currentAffairs={{
 					movePlayer, dropPlayer, setDropTime, playerRotate, level, stage, togglePause, gameOver, setTogglePause
 				}} >
-					<PauseButton state={togglePause} mobile={mobileView} callback={pauseGame} gameStarted={hasGameStarted} />
+					<PauseButton state={togglePause} mobile={isMobile} callback={pauseGame} gameStarted={hasGameStarted} />
 					<StartButton text={btnText} callback={startGame} />
 
 				</MobileControls>}

@@ -22,20 +22,20 @@ export const StyledTetris = styled.div`
 		width: 100%;
 		padding: 0 0 0.5rem 0;
 		grid-area: 1 / 1 / 2 / 3;
-		
 
 		& > div {
 			display: flex;
-
 		}
 	}
 
 	@media (orientation: landscape) {
-		grid-template-rows: 1fr auto;
+		grid-template-rows: 1fr 1fr auto;
 		grid-template-columns: repeat(3, 1fr);
 
 		aside {
 			grid-area: 1 / 1 / 2 / 2;
+			margin: 0;
+			
 			
 			& > div {
 				flex-direction: column;
@@ -47,6 +47,7 @@ export const StyledTetris = styled.div`
 			}
 		}
 	}
-
-	
+	@media (orientation: landscape) and (max-height: 414px) {
+		grid-template-rows: 1fr auto;
+	}
 `;

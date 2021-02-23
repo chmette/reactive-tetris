@@ -8,48 +8,40 @@ import { StyledDirButton, StyleMCStartStop, StyledMobileControls, StyledRotateBu
 const MobileControls = (props) => {
 
     const {movePlayer, setDropTime, level, playerRotate, stage, togglePause, gameOver, setTogglePause} = props.currentAffairs;
-	
 
 	return (
 		<>
-			
-				<StyledMobileControls>
+			<StyledMobileControls>
+	        	{/* move left */}
+				<StyledDirButton  onTouchStart={() => movePlayer(-1)}>
+	                <IoArrowBackOutline />
+	            </StyledDirButton>
 					
-	                {/* move left */}
-					<StyledDirButton  onTouchStart={() => movePlayer(-1)}>
-	                    <IoArrowBackOutline />
-	                </StyledDirButton>
-					
-					<StyledDirButton disabled></StyledDirButton>
+				<StyledDirButton disabled></StyledDirButton>
 	                
-					{/* move right */}
-					<StyledDirButton onTouchStart={() => movePlayer(1)}>
-	                    <IoArrowForwardOutline />
-	                </StyledDirButton>
+				{/* move right */}
+				<StyledDirButton onTouchStart={() => movePlayer(1)}>
+	                <IoArrowForwardOutline />
+	            </StyledDirButton>
 
-					{/* move down  */}
-						<StyledDirButton onTouchStart={() => {
-	                        setTogglePause(true);
-	                        setDropTime(50);
-	                    }} onTouchEnd={() => setDropTime(1000 / (level + 1))}>
-	                        <IoArrowDownOutline />
-	                    </StyledDirButton>
+				{/* move down  */}
+				<StyledDirButton onTouchStart={() => {
+	                setTogglePause(true);
+	                setDropTime(50);
+	            }} onTouchEnd={() => setDropTime(1000 / (level + 1))}>
+	                <IoArrowDownOutline />
+	            </StyledDirButton>
+			</StyledMobileControls>
 					
-	                
-				
+			{/* rotate */}
+	        <StyledRotateButton onTouchStart={() => togglePause && !gameOver && playerRotate(stage, 1)}>
+	            <IoRefreshOutline />
+	        </StyledRotateButton>
 	
-				</StyledMobileControls>
-					
-					{/* rotate */}
-	                <StyledRotateButton onTouchStart={() => togglePause && !gameOver && playerRotate(stage, 1)}>
-	                    <IoRefreshOutline />
-	                </StyledRotateButton>
-	
-	          {/*Start/Pause mobile view */}
-	            <StyleMCStartStop>
-	                {props.children}
-	            </StyleMCStartStop>
-			
+	        {/*Start/Pause mobile view */}
+	        <StyleMCStartStop>
+	            {props.children}
+	        </StyleMCStartStop>
 		</>
 	)
 }

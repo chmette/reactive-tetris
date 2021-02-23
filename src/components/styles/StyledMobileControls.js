@@ -10,8 +10,9 @@ export const StyledMobileControls = styled.section`
 	button:last-of-type {
 		grid-column: 2 / 3;
 	}
+
 	@media (orientation: landscape) {
-		grid-area: 2 / 1 / 3 / 2;
+		grid-area: 3 / 1 / 4 / 2;
 		margin: 1rem 0 0 1rem;
 	}
 `;
@@ -26,17 +27,21 @@ export const StyleMCStartStop = styled(StyledMobileControls)`
 	margin-right: 0rem;
 
 	div {
-		width: 14ch;
+		width: 9rem;
+		margin: 0;
 	}
 
 	@media (orientation: landscape) {
-		grid-area: 1 / 3 / 2 / 4;
-		align-content: start;
+		grid-area: -3 / 3 / -2 / 4;
+		align-content: space-evenly;
 		justify-self: end;
 		margin: 0 1rem 0 0;
 		grid-template: repeat(2, auto) / 1fr;
-	}
 
+		div {
+			margin: 0.2rem;
+		}
+	}
 `;
 
 export const StyledDirButton = styled.button`
@@ -64,4 +69,8 @@ export const StyledRotateButton = styled(StyledDirButton)`
 	background: #7d2625;
 	outline: none;
 	box-shadow: 0px 0px 2px 1px #999;
+
+	@media (orientation: landscape) {
+		grid-area: 3 / 3 / 4 / 4;
+	}
 `;

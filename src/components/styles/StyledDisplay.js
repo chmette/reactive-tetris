@@ -6,7 +6,7 @@ export const StyledDisplay = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: max(15ch, 100%);
+  width: max(15ch, calc(100% - 2rem));
   max-width: 42vmin;
   margin: 0 auto;
   padding: 0.5rem 0.7rem 0.1rem 0.7rem;

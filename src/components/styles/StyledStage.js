@@ -14,7 +14,7 @@ export const StyledStage = styled.div`
 	@media (orientation: landscape) {
 		grid-template-rows: repeat(${(props) => props.height}, 4vmin);
 		grid-template-columns: repeat(${(props) => props.width}, 4vmin);
-		grid-area: 1 / 2 / 3 / 3;
+		grid-area: 1 / 2 / 4 / 3;
 	}
 
 `;
