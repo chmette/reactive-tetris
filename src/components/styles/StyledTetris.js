@@ -5,6 +5,8 @@ export const StyledTetrisWrapper = styled.div`
   width: 100vw;
   flex-grow: 1;
   background: url(${bgImage}) #000;
+  background-position: center;
+  background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
   outline: none;
@@ -48,5 +50,29 @@ export const StyledTetris = styled.div`
         margin-top: 0.7rem;
       }
     }
+  }
+
+  @media only screen and (min-width: 480px) and (max-width: 767px) and (orientation: landscape),
+    (max-height: 750px) {
+    flex-direction: row;
+    align-items: flex-start;
+
+    aside {
+    width: 100%;
+    padding: 0 0 0.5rem 0;
+    order: -1;
+    display: flex;
+    flex-direction:column;
+    justify-content: space-between;
+
+    & > div {
+      display: flex;
+
+      &:first-child {
+        flex-grow: 1;
+      }
+    }
+
+
   }
 `;
