@@ -1,18 +1,14 @@
 import React, {useState, useEffect} from 'react';
 import {useMediaQuery} from 'react-responsive';
-
 //Game Helper Functions
 import { createStage, checkCollision } from '../gameHelpers';
-
 // styles
 import { StyledTetrisWrapper, StyledTetris } from './styles/StyledTetris';
-
 //Hooks
 import { usePlayer } from '../hooks/usePlayer';
 import { useStage } from '../hooks/useStage';
 import { useInterval } from '../hooks/useInterval'
 import { useGameStatus } from '../hooks/useGameStatus'
-
 //Components 
 import Stage from './Stage';
 import Display from './Display';

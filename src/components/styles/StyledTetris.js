@@ -13,31 +13,54 @@ export const StyledTetrisWrapper = styled.div`
 export const StyledTetris = styled.div`
   padding: min(3vmin, 3rem);
   margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(4, auto);
+  justify-items: center;
 
   aside {
     width: 100%;
     padding: 0 0 0.5rem 0;
-    order: -1;
-    display: flex;
-    justify-content: space-between;
+    grid-area: 1 / 1 / 2 / 2;
+    
 
     & > div {
       display: flex;
 
-      &:first-child {
-        flex-grow: 1;
-      }
     }
   }
 
+  @media screen and (min-width: 350px) {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto auto auto;
+
+		aside {
+			grid-row: 1;
+			grid-column: span 2;
+		}
+	}
+
+	@media screen and (max-height: 500px) {
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: auto auto auto;
+
+		aside {
+			grid-row: 1;
+			grid-column: 2 / 3;
+			& > div {
+				flex-direction: column;
+
+			}
+		}
+	}
+
   @media screen and (min-width: 600px) {
-    flex-direction: row;
-    align-items: flex-start;
+    grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr;
+    justify-items: initial;
 
     aside {
+		grid-column: 2 / 3;
       flex-direction: column;
       padding: 0 max(1rem, 6vmin);
       order: 0;
