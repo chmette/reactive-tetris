@@ -20,28 +20,30 @@ const MobileControls = (props) => {
 	                    <IoArrowBackOutline />
 	                </StyledDirButton>
 					
-	                {/* move down  */}
-	                <div>
-						<StyledDirButton disabled></StyledDirButton>
+					<StyledDirButton disabled></StyledDirButton>
+	                
+					{/* move right */}
+					<StyledDirButton onTouchStart={() => movePlayer(1)}>
+	                    <IoArrowForwardOutline />
+	                </StyledDirButton>
+
+					{/* move down  */}
 						<StyledDirButton onTouchStart={() => {
 	                        setTogglePause(true);
 	                        setDropTime(50);
 	                    }} onTouchEnd={() => setDropTime(1000 / (level + 1))}>
 	                        <IoArrowDownOutline />
 	                    </StyledDirButton>
-					</div>
+					
 	                
-					{/* move right */}
-					<StyledDirButton onTouchStart={() => movePlayer(1)}>
-	                    <IoArrowForwardOutline />
-	                </StyledDirButton>			
 				
+	
+				</StyledMobileControls>
+					
 					{/* rotate */}
 	                <StyledRotateButton onTouchStart={() => togglePause && !gameOver && playerRotate(stage, 1)}>
 	                    <IoRefreshOutline />
 	                </StyledRotateButton>
-	
-				</StyledMobileControls>
 	
 	          {/*Start/Pause mobile view */}
 	            <StyleMCStartStop>
