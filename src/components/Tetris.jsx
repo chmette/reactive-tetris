@@ -33,6 +33,18 @@ const Tetris = () => {
 	// media queries
 	const mobileView = useMediaQuery({ maxWidth: 599 });
 
+	const landscapeOrientation = useMediaQuery({orientation: 'landscape'});
+	const landscapeHeight = useMediaQuery({maxHeight: 750});
+	const landscapeWidthMin = useMediaQuery({minWidth: 480});
+	const landscapeWidthMax = useMediaQuery({maxWidth: 767}); 	
+	
+	const mobileLandscape = landscapeOrientation && landscapeHeight && landscapeWidthMax && landscapeWidthMin
+
+	console.log(mobileLandscape)
+
+
+
+
 	// custom hooks
 	const [player, updatePlayerPos, resetPlayer, playerRotate, futureTetro] = usePlayer();
 	const [stage, setStage, rowsCleared] = useStage(player, resetPlayer);
@@ -158,7 +170,8 @@ const Tetris = () => {
 				<Stage stage={stage} gameOver={gameOver} notPaused={togglePause} gameStarted={hasGameStarted}/>
 				
 				<aside>	
-					{!mobileView && <FutureTetro futureTetro={futureTetro} />}
+					{!mobileView || !mobileLandscape && <FutureTetro futureTetro={futureTetro} />}
+					
 					
 					{gameOver ? (
 						<div>
@@ -169,13 +182,13 @@ const Tetris = () => {
 							<Display text="Score:" value={score} />
 							<Display text="Rows:" value={rows} />
 							<Display text="Level:" value={level} />
-							{!mobileView && <PauseButton mobile={mobileView} state={togglePause} callback={pauseGame} gameStarted={hasGameStarted}/>}	
+							{!mobileView || !mobileLandscape && <PauseButton mobile={mobileView} state={togglePause} callback={pauseGame} gameStarted={hasGameStarted}/>}	
 						</div>
 					)}
-					{!mobileView && <StartButton text={btnText} callback={startGame} />}
+					{!mobileView || !mobileLandscape && <StartButton text={btnText} callback={startGame} /> }
 				</aside>
 
-				{mobileView &&
+				{mobileView && 
 				<MobileControls  currentAffairs={{
 					movePlayer, dropPlayer, setDropTime, playerRotate, level, stage, togglePause, gameOver, setTogglePause
 				}} >
@@ -183,6 +196,20 @@ const Tetris = () => {
 					<StartButton text={btnText} callback={startGame} />
 
 				</MobileControls>}
+
+				{/* Landscape view and low desktop */}
+				{mobileLandscape &&
+					<MobileControls  currentAffairs={{
+						movePlayer, dropPlayer, setDropTime, playerRotate, level, stage, togglePause, gameOver, setTogglePause
+					}} >
+						<PauseButton state={togglePause} mobile={mobileView} callback={pauseGame} gameStarted={hasGameStarted} />
+						<StartButton text={btnText} callback={startGame} />
+
+					</MobileControls>
+				
+				}
+
+
 
 			</StyledTetris>
 		
