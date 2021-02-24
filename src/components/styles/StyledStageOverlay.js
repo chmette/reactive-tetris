@@ -6,7 +6,7 @@ const StyledStageOverlay = styled.section`
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.7);
 	text-align: center;
-	font-size: 2.9rem;
+	font-size: clamp(8.5vmin, 2.8rem, 15vmin);
 	color: #999;
 	display: flex;
 	align-items: center;
@@ -20,6 +20,10 @@ const StyledStageOverlay = styled.section`
 		background-clip: text;
 		-webkit-background-clip: text;
 		-moz-background-clip: text;
+	}
+
+	@media (min-width: 800px) {
+		font-size: clamp(11vmin, 2.8rem, 15vmin);
 	}
 `
 

@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import Tetris from "./components/Tetris";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -12,14 +12,17 @@ const App = () => {
 		setPopupShown(!popupShown);
 	}
 
-  return (
-    <main>
-		<Header onPopupHandle={handlePopup} />
-		{popupShown && <InstructionsPopup onPopupHandle={handlePopup}/>}
-      <Tetris />
-      <Footer />
-    </main>
-  );
+	return (
+		<main>
+			<Header onPopupHandle={handlePopup} />
+
+			{popupShown && <InstructionsPopup onPopupHandle={handlePopup} />}
+			
+			<Tetris />
+			
+			<Footer />
+		</main>
+	);
 };
 
 export default App;
