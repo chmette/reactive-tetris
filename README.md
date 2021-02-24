@@ -31,7 +31,7 @@ The tech stack:
 
 ### Screenshots
 
-<img src="./screenshots/tetris-desktop-game.png" alt="screenshot" width="800px" />
+<img src="./screenshots/tetris-desktop-game.jpg" alt="screenshot" width="800px" />
 
 <img src="./screenshots/tetris-mobile-game.jpg" alt="screenshot" width="300px" /> <img src="./screenshots/tetris-mobile-pause.jpg" alt="screenshot" width="300px" />
 
