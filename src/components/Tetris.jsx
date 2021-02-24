@@ -116,9 +116,13 @@ const Tetris = () => {
 		setTogglePause(true)
 	}
 
-	const move = ({key}) => {
+	const move = (ev) => {
 		if (gameOver  || !hasGameStarted) return;
 
+		// this prevents scrolling with arrow keys
+		ev.preventDefault();
+
+		const {key} = ev;
 		// move left
 		if (key === 'ArrowLeft' ) {
 			movePlayer(-1);
@@ -149,7 +153,7 @@ const Tetris = () => {
 
 	return (
 
-		<StyledTetrisWrapper role="button" tabIndex="0"  onKeyDown={e => move(e)} onKeyUp={keyUp}>
+		<StyledTetrisWrapper role="button" tabIndex="0"  onKeyDown={move} onKeyUp={keyUp}>
 			<StyledTetris>
 				<Stage stage={stage} gameOver={gameOver} notPaused={togglePause} gameStarted={hasGameStarted}/>
 				
